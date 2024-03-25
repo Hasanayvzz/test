@@ -1,0 +1,92 @@
+.btn-pill-v1 {
+  background: #748fb5;
+  border-radius: 8px;
+  padding: 14px 36px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 23px;
+  letter-spacing: 0em;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  color: #ffffff;
+  display: inline-block;
+  transition: all 0.25s;
+  border: none;
+  text-wrap: nowrap;
+}
+.btn-pill-v1:hover {
+  color: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+.btn-pill-v2 {
+  background: #f9b34d;
+  border-radius: 8px;
+  padding: 14px 36px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 23px;
+  letter-spacing: 0em;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  color: #ffffff;
+  display: inline-block;
+  transition: all 0.25s;
+  border: none;
+}
+.btn-pill-v2:hover {
+  color: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn-rounded-v1 {
+  cursor: pointer;
+  padding: 14px 36px;
+  outline: none;
+  border-radius: 8px;
+  font-style: normal;
+  font-weight: 600;
+  color: #fff;
+  font-size: 15px;
+  background: #f9b34d;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  transition: all 0.3s;
+  border: 1px solid #f9b34d;
+}
+
+.btn-rounded-v1:hover {
+  background: transparent;
+  color: #f9b34d;
+  transform: scale(1.01);
+  border: 1px solid #f9b34d -15.49%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn-rounded-yellow {
+  cursor: pointer;
+  padding: 14px 36px;
+  outline: none;
+  border-radius: 8px;
+  font-style: normal;
+  font-weight: 600;
+  color: #f9b34d;
+  font-size: 15px;
+  background: transparent;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  transition: all 0.3s;
+  border: 1px solid #f9b34d;
+}
+
+.btn-rounded-yellow:hover {
+  background: #f9b34d;
+
+  color: #fff;
+  transform: scale(1.01);
+  border: 1px solid #f9b34d -15.49%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}

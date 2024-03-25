@@ -1,0 +1,78 @@
+$themes: (
+  light: (
+    sticky-bg: rgba(255, 255, 255, 1),
+    bg-body: #ffffff,
+    bg-body-2: #f4f7fa,
+    bg-body-3: #eaeff3,
+    /*texts color*/ text-1: #1e252b,
+    text-2: #1e252b,
+    text-3: #b5b5b5,
+    text-4: rgba(255, 255, 255, 0.9),
+    text-5: #748fb5,
+    text-6: #ffffff,
+    header-text-1: #041226,
+    header-text-2: rgba(4, 18, 38, 0.9),
+    shadow-1: 0px 2px 2px rgba(5, 5, 20, 0.4),
+    shadow-2: 7px 7px 16px rgba(12, 16, 25, 0.4),
+    shadow-3: 10px 10px 26px #d1d1d1,
+    border-1: #f9b34e,
+    border-2: #748fb5,
+    border-3: #ffd497,
+    border-4: #ffffff,
+    border-5: rgba(4, 18, 38, 0.16),
+    border-6: rgba(4, 18, 38, 0.4),
+    border-7: rgba(175, 179, 186, 0.4),
+    border-8: transparent,
+  ),
+  dark: (
+    sticky-bg: rgba(21, 21, 38, 0.5),
+    bg-body: #1e252b,
+    bg-body-2: #151526,
+    bg-body-3: hsl(240, 35%, 12%),
+    /*texts color*/ text-1: #ffffff,
+    text-2: #b5b5b5,
+    text-3: #fff,
+    text-4: rgba(255, 255, 255, 0.6),
+    text-5: #798da3,
+    text-6: #7c7e89,
+    text-7: rgba(255, 255, 255, 0.9),
+    text-8: #81878c,
+    text-9: rgba(255, 255, 255, 0.7),
+    text-10: #feda03,
+    header-text-1: #fff,
+    header-text-2: rgba(255, 255, 255, 0.9),
+    /*shadows*/ shadow-1: 0px 2px 2px rgba(5, 5, 20, 0.4),
+    shadow-2: 4px 4px 8px rgba(0, 0, 0, 0.35),
+    shadow-3: 4px 4px 8px rgba(0, 0, 0, 0.35),
+    border-1: #f9b34e,
+    border-2: #748fb5,
+    border-3: #ffd497,
+    border-4: #1e1e2f,
+    border-5: #c6c8cc,
+    border-6: rgba(254, 218, 3, 0.2),
+    border-7: #000000,
+    border-8: #7c7e894d,
+  ),
+);
+
+@mixin themify($themes) {
+  @each $theme, $map in $themes {
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), "#{$key}");
+        $theme-map: map-merge(
+          $theme-map,
+          (
+            $key: $value,
+          )
+        ) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}

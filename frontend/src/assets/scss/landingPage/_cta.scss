@@ -1,0 +1,22 @@
+$color_1: #f9b34e;
+$color_2: #fff;
+
+/*--------------------------------------------------------------
+# Cta
+--------------------------------------------------------------*/
+.cta {
+  background: url("/common/cta/bg.jpg");
+  background-size: cover;
+  padding: 120px 0;
+  h3 {
+    color: $color_2;
+    font-size: 42px;
+    font-weight: 700;
+  }
+  p {
+    color: $color_2;
+    max-width: 854px;
+    font-size: 21px;
+    margin: 0 auto;
+  }
+}

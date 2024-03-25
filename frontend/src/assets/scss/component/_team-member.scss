@@ -1,0 +1,121 @@
+.project-team {
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+
+  .member-photo-frame {
+    height: 204px;
+    position: relative;
+    width: 204px;
+    margin: auto;
+    @media (max-width: 960px) {
+      height: 140px;
+      width: 140px;
+    }
+    .member-photo {
+      border: 1px solid;
+      border-color: #f8b24e;
+      border-radius: 102px;
+      height: 204px;
+      .photo {
+        background-color: #e7e7e7;
+
+        background-size: 100% 100%;
+        border-radius: 92.05px;
+        height: 184px;
+        left: 9px;
+        position: relative;
+        top: 9px;
+        width: 184px;
+        @media (max-width: 960px) {
+          width: 120px;
+          height: 120px;
+        }
+        img {
+          color: transparent;
+          width: 100%;
+          /* position: fixed; */
+          object-fit: cover;
+          height: 100%;
+          border-radius: 100%;
+        }
+      }
+      @media (max-width: 960px) {
+        height: 140px;
+      }
+    }
+  }
+  .member-info {
+    align-items: center;
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    margin-top: 20px;
+    .member-name-wrapper {
+      align-items: center;
+      display: inline-flex;
+      flex: 0 0 auto;
+      flex-direction: column;
+      gap: 4px;
+      position: relative;
+      .name {
+        @include themify($themes) {
+          color: themed("text-1");
+        }
+
+        font-size: 28px;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -1px;
+        position: relative;
+        text-align: center;
+        width: fit-content;
+        @media (max-width: 960px) {
+          font-size: 14px;
+        }
+      }
+      .title {
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 0;
+        line-height: 24px;
+        position: relative;
+        text-align: center;
+        white-space: nowrap;
+        width: fit-content;
+        @include themify($themes) {
+          color: themed("text-5");
+        }
+        @media (max-width: 960px) {
+          font-size: 10px;
+        }
+      }
+    }
+    .social-media {
+      align-items: flex-start;
+      display: inline-flex;
+      flex: 0 0 auto;
+      gap: 12px;
+      position: relative;
+      .img-wrapper {
+        background-color: #ffffff0d;
+        border-radius: 20px;
+        height: 40px;
+        position: relative;
+        width: 40px;
+      }
+    }
+  }
+  @media (max-width: 960px) {
+    gap: 10px;
+
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

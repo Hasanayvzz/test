@@ -1,0 +1,227 @@
+.text-32-600 {
+  color: #28324b;
+  font-size: 32px;
+  line-height: 38.01px;
+  font-weight: 600;
+}
+.text-justify {
+  text-align: justify;
+}
+.text-24-700 {
+  color: #28324b;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29.26px;
+}
+.text-24-700-yellow {
+  color: #f9b34e;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29.26px;
+}
+.text-18-500 {
+  color: #28324b;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 21.94px;
+}
+.text-18-500-dark-gray {
+  color: #5f5f5f;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 21.94px;
+}
+.text-20-600 {
+  color: #28324b;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24.38px;
+}
+.text-20-500 {
+  color: #28324b;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24.38px;
+}
+
+.text-16-400-gray {
+  font-weight: 400;
+  font-size: 16px;
+  color: #b5b5b5;
+  line-height: 19.36px;
+}
+.text-16-400-info {
+  font-weight: 400;
+  font-size: 16px;
+  color: #7c7e89;
+  line-height: 19.5px;
+}
+.text-16-500-white {
+  font-weight: 500;
+  font-size: 16px;
+  color: #fff;
+  line-height: 24px;
+}
+.text-16-500 {
+  font-weight: 500;
+  font-size: 16px;
+  color: #2f3a4b;
+  line-height: 24px;
+}
+.text-16-600-purple {
+  font-weight: 600;
+  font-size: 16px;
+  color: #c868c4;
+  line-height: 19.5px;
+}
+.text-16-600-yellow {
+  font-weight: 600;
+  font-size: 16px;
+  color: #f9b34e;
+  line-height: 19.5px;
+}
+.text-16-600 {
+  font-weight: 600;
+  font-size: 16px;
+  color: #28324b;
+  line-height: 19.5px;
+}
+
+.text-24-600-gray {
+  font-weight: 600;
+  font-size: 24px;
+  color: #b5b5b5;
+  line-height: 29.26px;
+}
+
+.text-24-600-black {
+  font-weight: 600;
+  font-size: 24px;
+  color: #1e252b;
+  line-height: 29.26px;
+  text-wrap: nowrap;
+}
+.text-24-600 {
+  font-weight: 600;
+  font-size: 24px;
+  color: #28324b;
+  line-height: 29.26px;
+}
+.text-18-600-gray {
+  font-weight: 600;
+  font-size: 18px;
+  color: #b5b5b5;
+  line-height: 21.94px;
+  text-wrap: nowrap;
+}
+.text-18-600-blue {
+  font-weight: 600;
+  font-size: 18px;
+  color: #748fb5;
+  line-height: 21.94px;
+}
+.text-18-400 {
+  font-weight: 400;
+  font-size: 18px;
+  color: #28324b;
+  line-height: 21.94px;
+}
+.text-18-400-info {
+  font-weight: 400;
+  font-size: 18px;
+  color: #777777;
+  line-height: 26px;
+}
+
+.text-16-400 {
+  font-weight: 400;
+  font-size: 16px;
+  color: #1e252b;
+  line-height: 19.5px;
+}
+
+.text-28-700-black {
+  font-weight: 700;
+  font-size: 28px;
+  color: #28324b;
+  line-height: 34.13px;
+}
+.text-28-600-black {
+  font-weight: 700;
+  font-size: 28px;
+  color: #28324b;
+  line-height: 34.13px;
+}
+
+.text-28-600-dark {
+  font-weight: 700;
+  font-size: 24px;
+  color: #1e252b;
+  line-height: 29.26px;
+}
+
+.overflow-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+.gradient-text {
+  background: linear-gradient(0deg, #ffd497, #ffd497),
+    linear-gradient(0deg, #ffffff, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.forgot-pass-text:hover {
+  color: #f9b34e;
+}
+
+.login-text {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+  letter-spacing: 0em;
+
+  &.dark {
+    color: #e2e2e2 !important;
+  }
+  &.light {
+    color: #344767;
+  }
+}
+
+.sign-up-head {
+  color: #2a2a2b;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 35px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+.sign-up-title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  color: #344767;
+
+  span {
+    font-weight: 700;
+    cursor: pointer;
+    color: #f9b34e;
+  }
+  span:hover {
+    color: #344767;
+  }
+}
+.input-label {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #344767;
+}

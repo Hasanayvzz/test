@@ -1,0 +1,148 @@
+$dark-bg: #333333;
+$light-bg: #fff;
+$light-text: #4b4b4b;
+$dark-text: #e2e2e2;
+$project-detail-bg-light: #f9f9f9;
+$project-detail-bg-dark: #3c3c3c;
+$project-detail-head-light: #7b809a;
+$project-detail-head-dark: #cbcbcb;
+$project-detail-text-light: #344767;
+$project-detail-text-dark: #e2e2e2;
+
+.project-card-container {
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  box-shadow: 0px 21px 66px rgba(104, 106, 107, 0.2);
+  &.dark {
+    background-color: $dark-bg;
+  }
+  &.light {
+    background-color: $light-bg;
+  }
+}
+.project-card-container:hover {
+  -webkit-box-shadow: 0 20px 40px rgba(72, 78, 85, 0.6);
+  box-shadow: 0 20px 40px rgba(72, 78, 85, 0.6);
+  transition: 0.5s ease-in-out;
+  transform: translateY(-15px);
+}
+
+.project-text {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0em;
+  &.dark {
+    color: $dark-text !important;
+  }
+  &.light {
+    color: $light-text !important;
+  }
+}
+
+.project-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-radius: 4px;
+  padding: 12px 4px 12px 4px;
+  &.dark {
+    background-color: $project-detail-bg-dark;
+  }
+  &.light {
+    background-color: $project-detail-bg-light;
+  }
+}
+
+.project-detail-text-head {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;
+
+  &.dark {
+    color: $project-detail-head-dark !important;
+  }
+  &.light {
+    color: $project-detail-head-light !important;
+  }
+}
+
+.project-detail-text {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: right;
+
+  &.dark {
+    color: $project-detail-text-dark !important;
+  }
+  &.light {
+    color: $project-detail-text-light !important;
+  }
+}
+
+.days-left {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+  &.dark {
+    color: $project-detail-text-dark;
+  }
+  &.light {
+    color: $project-detail-text-light;
+  }
+}
+
+.container-my {
+  display: flex;
+  align-items: center; // Yatay hizalama
+}
+
+.line {
+  flex: 1; // Esneklik sağlar, diğer öğeleri sıkıştırmaz
+  border-top: 1px solid black; // Yatay çizgi
+
+  &.light {
+    border-top: 1px solid #d8d8d8;
+  }
+  &.dark {
+    border-top: 1px solid #3e3e3e;
+  }
+}
+
+.text {
+  margin: 0 10px; // Metin ile çizgiler arasındaki boşluk
+}
+
+.projects-container {
+  display: grid;
+  gap: 20px;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(388px, 1fr));
+}
+
+@media (max-width: 1320px) {
+  .projects-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 990px) {
+  .projects-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 660px) {
+  .projects-container {
+    grid-template-columns: 1fr;
+  }
+}

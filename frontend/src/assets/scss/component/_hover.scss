@@ -1,0 +1,106 @@
+.education {
+  --bg-color: #f7f8f9;
+  --bg-color-light: #947414;
+  --text-color-hover: #4c5656;
+  --box-shadow-color: #999999;
+}
+
+.credentialing {
+  --bg-color: #b8f9d3;
+  --bg-color-light: #e2fced;
+  --text-color-hover: #4c5656;
+  --box-shadow-color: rgba(184, 249, 211, 0.48);
+}
+
+.wallet {
+  --bg-color: #ceb2fc;
+  --bg-color-light: #f0e7ff;
+  --text-color-hover: #fff;
+  --box-shadow-color: rgba(206, 178, 252, 0.48);
+}
+
+.human-resources {
+  --bg-color: #dce9ff;
+  --bg-color-light: #f1f7ff;
+  --text-color-hover: #4c5656;
+  --box-shadow-color: rgba(220, 233, 255, 0.48);
+}
+
+.utility-token-section-content-wrapper {
+  position: relative;
+  transition: all 0.3s ease-out;
+  text-decoration: none;
+}
+
+.utility-token-section-content-wrapper:hover {
+  background: #e6d5f75e;
+  transform: translateY(-5px) scale(1.005) translateZ(0);
+   box-shadow: rgba(255, 255, 255, 0.1) 0px 4px 12px;
+}
+
+.utility-token-section-content-wrapperd:hover .overlay {
+  transform: scale(4) translateZ(0);
+}
+
+.utility-token-section-content-wrapper:hover .circle {
+  border-color: var(--bg-color-light);
+  background: var(--bg-color);
+}
+
+.utility-token-section-content-wrapper:hover .circle:after {
+  background: var(--bg-color-light);
+}
+
+.utility-token-section-content-wrapper:hover p {
+  color: var(--text-color-hover);
+}
+
+.utility-token-section-content-wrapper:active {
+  transform: scale(1) translateZ(0);
+  box-shadow: 0 15px 24px rgba(0, 0, 0, 0.11),
+    0 15px 24px var(--box-shadow-color);
+}
+
+.circle {
+  width: 131px;
+  height: 131px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease-out;
+}
+
+.circle:after {
+  content: "";
+  width: 118px;
+  height: 118px;
+  display: block;
+  position: absolute;
+  background: var(--bg-color);
+  border-radius: 50%;
+  top: 7px;
+  left: 7px;
+  transition: opacity 0.3s ease-out;
+}
+
+.circle svg {
+  z-index: 10000;
+  transform: translateZ(0);
+}
+
+.overlay {
+  width: 118px;
+  position: absolute;
+  height: 118px;
+  border-radius: 50%;
+  background: var(--bg-color);
+  top: 70px;
+  left: 50px;
+  z-index: 0;
+  transition: transform 0.3s ease-out;
+}

@@ -1,0 +1,91 @@
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+
+$color_1: #fff;
+
+#footer {
+  padding: 0 0 30px 0;
+  @include themify($themes) {
+    background: themed("bg-body");
+  }
+  .footer-top {
+    padding: 60px 0 30px 0;
+    .footer-info {
+      margin-bottom: 15px;
+
+      img {
+        width: auto;
+      }
+    }
+    .social-links {
+      a {
+        font-size: 18px;
+        display: inline-block;
+        // background: #c868c499;
+        color: $color_1;
+        line-height: 1;
+        padding: 8px 0;
+        margin-right: 4px;
+        border-radius: 8px;
+        text-align: center;
+
+        transition: 0.3s;
+        &:hover {
+          // width: 32px;
+          // height: 32px;
+          // background: #c868c499;
+          // color: $color_1;
+          text-decoration: none;
+        }
+      }
+    }
+    .footer-info p {
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 20px;
+      text-align: justify;
+      @include themify($themes) {
+        color: themed("text-1");
+      }
+    }
+  }
+  .footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    h4 {
+      font-size: 16px;
+      font-weight: 600;
+
+      position: relative;
+      padding-bottom: 12px;
+      margin: 0;
+      padding: 0;
+      padding-left: 5px;
+      @include themify($themes) {
+        color: themed("text-1");
+      }
+    }
+    span {
+      padding-left: 10px;
+      @include themify($themes) {
+        color: themed("text-1");
+      }
+    }
+  }
+  .copyright {
+    border-top: 1px solid #dedede;
+    text-align: center;
+    padding-top: 30px;
+    color: #b5b5b5;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 575px) {
+  #footer .footer-top .footer-info {
+    margin: -20px 0 30px 0;
+  }
+}

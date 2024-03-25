@@ -1,0 +1,62 @@
+$color_1: #fff;
+
+.portfolio {
+  width: 100%;
+  max-height: 1700px;
+  height: auto;
+  background-repeat: no-repeat;
+  background-position: inherit;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 0;
+  overflow: visible;
+  padding: 160px 0;
+  @media (max-width: 960px) {
+    max-height: 100%;
+  }
+  &.dark {
+    background-image: url("/common/project/dark.png");
+  }
+  &.light {
+    background-image: url("/common/project/bg.png");
+  }
+}
+#portfolio-flters {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  display: flex;
+  gap: 1.8rem;
+  margin: 0 0 30px 0;
+  li {
+    cursor: pointer;
+    background: #ffd497;
+    padding: 12px 24px;
+    border-radius: 12px;
+    color: $color_1;
+
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0em;
+    text-align: left;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  li.filter-active {
+    color: $color_1;
+    transition: none;
+    background: #f9b34e;
+  }
+}
+
+.apply-launch {
+  p {
+    @include themify($themes) {
+      color: themed("text-1");
+    }
+  }
+}

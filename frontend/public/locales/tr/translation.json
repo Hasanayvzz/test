@@ -1,0 +1,81 @@
+{
+  "navbar": {
+    "home": "Ana Sayfa",
+    "allBlogs": "Tüm Bloglar",
+    "adminDashboard": "Yönetici",
+    "login": "Giriş Yap",
+    "register": "Kayıt Ol",
+    "hello": "Merhaba",
+    "myProfile": "Profilim",
+    "logOut": "Çıkış"
+  },
+  "hero": {
+    "title": "Güzelliğiyle Büyüleyen Dünyayı Keşfet.",
+    "startButton": "Göz At",
+    "howButton": "Nasıl Başlanır"
+  },
+  "about": {
+    "about": "Hakkında",
+    "aboutTitle": "Hakkında",
+    "aboutDetail": "Hoş geldiniz! Seyahat etmek, yeni yerler keşfetmek ve unutulmaz deneyimler yaşamak tutkumuzdur. Seyahatlerimizin bize kattığı değerleri ve paylaşma isteğimizi bir araya getirerek, seyahatseverler için bir buluşma noktası oluşturmak için buradayız.",
+    "applyTitle": "Seyahat Düşleri Nedir ?",
+    "applyDetail": "Seyahat Düşleri, seyahat tutkunlarının bir araya gelip seyahat deneyimlerini paylaşabilecekleri, ilham alabilecekleri ve dünyayı keşfetmek için yeni rotalar bulabilecekleri bir platformdur. Sizlerle birlikte, dünyanın dört bir yanından gelen seyahat bloglarını ve yazılarını bir araya getiriyoruz. Sıra dışı destinasyonlardan yerel lezzetlere, kültürel zenginliklerden macera dolu aktivitelere kadar geniş bir yelpazede seyahat içerikleri sunuyoruz.",
+    "siteMessage": "Mesajımız",
+    "messageDetail": "Hemen üye olun ve seyahat dolu dünyamıza katılın! Seyahat dolu günler dileriz. Seyahat Düşleri Ekibi",
+    "purpose": "Amacımız",
+    "purposeDetail": "Amacımız, seyahatseverleri bir araya getirerek bilgi ve deneyimlerini paylaşmalarını sağlamak, yeni yerler keşfetmelerine ilham vermek ve dünya üzerindeki bağları güçlendirmektir. Siz de seyahat tutkunları arasına katılarak, bizimle birlikte dünyayı keşfedin, deneyimlerinizi paylaşın ve seyahat tutkunlarıyla bağlantı kurun!"
+  },
+  "project": {
+    "projects": "Bloglar",
+    "projectTitle": "Son Yüklenenler",
+
+    "success": {
+      "successTitle": "Proje Başvurunuz Başarıyla Gönderildi!",
+      "successDetail": "Proje oluşturma talebinizi başarıyla gönderdiğiniz için teşekkür ederiz. Ekibimiz başvurunuzu en kısa sürede gözden geçirecek ve size en kısa sürede dönüş yapacaktır.",
+      "successButton": "Projelere Geri Dön"
+    }
+  },
+  "noData": {
+    "noDataText": "Henüz yazı bulunmamaktadır.",
+    "tableNoData": "Henüz user bilgisi bulunmamaktadır.",
+    "upcomingData": "Bu proje henüz başlamadı. Projenin başlamasından sonra detayları görüntüleyebilirsiniz."
+  },
+
+  "cta": {
+    "cta": "Seyahatlerinizi Seyahat Düşleri'nde yayınlamak ister misiniz?",
+    "ctaButton": "Kayıt Olun"
+  },
+
+  "footer": {
+    "footerDetail": "Seyahatseverleri bir araya getirerek bilgi ve deneyimlerini paylaşmalarını sağlamak, yeni yerler keşfetmelerine ilham vermek ve dünya üzerindeki bağları güçlendirmektir. Siz de seyahat tutkunları arasına katılarak, bizimle birlikte dünyayı keşfedin, deneyimlerinizi paylaşın ve seyahat tutkunlarıyla bağlantı kurun!",
+    "copyright": "Telif Hakkı @ 2024 seyahatdüsleri.com Tüm Hakları Saklıdır.",
+    "contact": "Bize Ulaşın",
+    "privacyPolicy": "Açık Rıza Metni",
+    "kvkk": "KVKK",
+    "cookies": "Çerez Yönetimi",
+    "links": "Hızlı Linkler"
+  },
+
+  "button": {
+    "details": "Detaylar",
+    "register": "Kayıt Ol",
+    "actions": "Aksiyonlar",
+    "approve": "Onayla",
+    "reject": "Reddet",
+    "deleteAccount": "Hesabı Sil",
+    "startProject": "Proje Başlat",
+    "projectDetail": "Proje Detayı",
+    "stopProject": "Proje Durdur",
+    "start": "Başla",
+    "cancel": "İptal",
+    "back": "Geri",
+    "continue": "Devam",
+    "submit": "Gönder"
+  },
+
+  "news": {
+    "newsAndBlog": "Haberler ve Blog",
+    "newsTitle": "Son Güncellemeler",
+    "read": "Oku"
+  }
+}

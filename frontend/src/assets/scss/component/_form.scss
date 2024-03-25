@@ -1,0 +1,146 @@
+.step-container {
+  .row {
+    padding: 40px 10px;
+    .left-title {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 24px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: #1e252b;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .left-detail {
+      color: #6f6f6f;
+
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: 0em;
+      text-align: left;
+      display: block;
+    }
+    .stepper-text {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 24px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: #505050;
+    }
+  }
+  .ql-toolbar {
+    background: #ffffff;
+    border-radius: 8px;
+  }
+  .ql-container {
+    margin-top: 5px;
+    background: #ffffff;
+    border: 1px solid #ececec !important;
+    border-radius: 8px;
+    height: 150px;
+  }
+  .upload-img {
+    border: 1px solid #b5b5b5;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    padding: 40px;
+  }
+  .upload-info {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #b5b5b5;
+  }
+  .upload-title {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #1e252b;
+  }
+  .upload-btn {
+    color: transparent;
+    width: 120px;
+    overflow: hidden;
+    &::file-selector-button {
+      border: 1px solid #b5b5b5;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: none;
+      padding: 6px 12px;
+      cursor: pointer;
+    }
+  }
+  .delete-text {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #ff4e4e;
+  }
+  .img-input {
+    position: relative;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ececec;
+    height: 60px;
+    color: transparent;
+    &::file-selector-button {
+      display: none;
+    }
+  }
+  .amount-input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 1px solid #1e252b;
+  }
+  .amount-select {
+    max-width: 120px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: 1px solid #1e252b;
+  }
+  select {
+    padding: 20px;
+    appearance: none;
+    background: url("/common/Group.svg") no-repeat right center;
+    background-color: #fff;
+  }
+}
+
+body.create-page {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100vh;
+  position: relative;
+}
+
+.success-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  color: rgb(64, 64, 64);
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+.input-button {
+  position: relative;
+}
+.btn-absolute {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+}

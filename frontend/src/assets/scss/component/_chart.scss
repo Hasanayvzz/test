@@ -1,0 +1,23 @@
+.chart-box {
+	border: 1px solid #efefef;
+	background: #fcfcfc;
+	border-radius: 15px;
+	.chart-header {
+		border-bottom: 1px solid #e3e3e3;
+		.tab-box {
+			.tab-list {
+				display: flex;
+				align-items: center;
+				flex-direction: column;
+				justify-content: center;
+				gap: 5px;
+				&.active-tab {
+					border-bottom: 2px solid #ef707a;
+					span {
+						color: #ef707a;
+					}
+				}
+			}
+		}
+	}
+}

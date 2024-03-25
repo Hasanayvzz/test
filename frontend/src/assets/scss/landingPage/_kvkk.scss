@@ -1,0 +1,5 @@
+.kvkk{
+    @include themify($themes) {
+        color:themed("text-2")
+      }
+}

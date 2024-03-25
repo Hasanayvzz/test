@@ -1,0 +1,167 @@
+.staking-title {
+  span {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 52px;
+    letter-spacing: 0em;
+    text-align: left;
+    @include themify($themes) {
+      color: themed("text-1");
+    }
+    @media (max-width: 960px) {
+      font-size: 30px;
+    }
+  }
+}
+.stake-page {
+  height: 100vh;
+  margin-top: 150px;
+  @media (max-width: 960px) {
+    height: 100%;
+    margin: 20px auto 50px auto;
+    width: 95%;
+  }
+  .row {
+    @media (max-width: 960px) {
+      gap: 40px;
+    }
+  }
+}
+.stake-container {
+  background: #f5f5f5;
+
+  border: 1px solid #7c7e894d;
+  padding: 30px 20px;
+  border-radius: 12px;
+  .stake-box-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    .stake-box {
+      position: relative;
+      .stake-days {
+        background: #263261;
+        border-radius: 12px;
+        padding: 12px 30px;
+        color: #fff;
+        text-wrap: nowrap;
+      }
+      .stake-discount {
+        position: absolute;
+        top: -15px;
+        right: -10px;
+        background: #c868c4;
+        color: #fff;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100%;
+
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 17px;
+        letter-spacing: 0em;
+        text-align: left;
+      }
+      .stake-lock-box {
+        background: #748fb580;
+        padding: 12px 30px;
+        border-radius: 12px;
+        color: #fff;
+        text-wrap: nowrap;
+      }
+      .stake-lock {
+        position: absolute;
+        top: -15px;
+        right: -10px;
+        background: #1e252b;
+        color: #fff;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100%;
+      }
+    }
+    @media (max-width: 960px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+}
+
+.stake-max {
+  background: #f9b34e;
+  padding: 14px 36px;
+  border-radius: 8px;
+  color: #fff;
+  width: 88px;
+  height: 48px;
+  position: absolute;
+  right: 1%;
+  top: 12%;
+
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (max-width: 960px) {
+    font-size: 14px;
+  }
+}
+.stake-price-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  span {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #b5b5b5;
+    @media (max-width: 960px) {
+      font-size: 18px;
+    }
+  }
+}
+.stake-amont-title {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+
+  color: #1e252b;
+  @media (max-width: 960px) {
+    font-size: 18px;
+  }
+}
+.stake-amount-info {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #1e252b;
+  @media (max-width: 960px) {
+    font-size: 18px;
+  }
+}
+.stake-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .stake-amount-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

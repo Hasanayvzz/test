@@ -1,0 +1,73 @@
+{
+  "navbar": {
+    "home": "Home",
+    "allBlogs": "All Blogs",
+    "login": "Login",
+    "register": "Register",
+    "hello": "Hello",
+    "myProfile": "My Profile",
+    "logOut": "Log Out"
+  },
+  "hero": {
+    "title": "Explore the Beauty of the Beautiful World",
+    "startButton": "Take a Look",
+    "howButton": "How to Start"
+  },
+  "about": {
+    "about": "About",
+    "aboutTitle": "About",
+    "aboutDetail": "Welcome! Traveling, discovering new places and having unforgettable experiences is our passion. We are here to create a meeting point for travelers by bringing together the values ​​that our travels bring to us and our desire to share.",
+    "applyTitle": "What Are Seyahat Düşleri",
+    "applyDetail": "Seyahat Düşleri is a platform where travel enthusiasts can come together, share their travel experiences, get inspired and find new routes to explore the world. We bring together travel blogs and articles from around the world. We offer a wide range of travel content, from extraordinary destinations to local delicacies, from cultural riches to adventurous activities.",
+    "siteMessage": "Our Message",
+    "messageDetail": "Sign up now and join our world of travel! We wish you days full of travel. Seyahat Düşleri Team",
+    "purpose": "Our Goal",
+    "purposeDetail": "Our goal is to bring travelers together to share their knowledge and experiences, inspire them to discover new places and strengthen ties around the world. Join the travel enthusiasts, explore the world with us, share your experiences and connect with travel enthusiasts!"
+  },
+  "project": {
+    "projects": "Blogs",
+    "projectTitle": "Latest Uploads"
+  },
+  "noData": {
+    "noDataText": "No writing yet.",
+    "tableNoData": "User data is not accessible at this time.",
+    "upcomingData": "This project has not started yet. You can view the details after the project starts."
+  },
+
+  "cta": {
+    "cta": "Would you like to publish your travels on Seyahat Düşleri?",
+    "ctaButton": "Register"
+  },
+
+  "footer": {
+    "footerDetail": "Our mission is to bring travelers together to share their knowledge and experiences, inspire them to discover new places and strengthen ties around the world. Join the travel enthusiasts, explore the world with us, share your experiences and connect with travel enthusiasts!",
+    "copyright": "Copyright @ 2024 Seyahat Düşleri All Rights Reserved.",
+    "contact": "Contact",
+    "privacyPolicy": "Privacy Policy",
+    "kvkk": "KVKK",
+    "cookies": "Cookies",
+    "links": "Quick Links"
+  },
+  "button": {
+    "details": "Details",
+    "register": "Register",
+    "actions": "Actions",
+    "approve": "Approve",
+    "reject": "Reject",
+    "deleteAccount": "Delete Account",
+    "startProject": "Start Project",
+    "projectDetail": "Project Detail",
+    "start": "Start",
+    "cancel": "Cancel",
+    "back": "Back",
+    "continue": "Continue",
+    "submit": "Submit",
+    "next": "Next"
+  },
+
+  "news": {
+    "newsAndBlog": "News & Blog",
+    "newsTitle": "Latest Updates from",
+    "read": "Read"
+  }
+}

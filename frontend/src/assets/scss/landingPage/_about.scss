@@ -1,0 +1,133 @@
+/*--------------------------------------------------------------
+# About
+--------------------------------------------------------------*/
+
+.about {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  &.dark {
+    background-image: url("/common/about/dark.png");
+  }
+  &.light {
+    background-image: url("/common/about/bg.png");
+  }
+}
+.about-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (max-width: 960px) {
+    flex-direction: column;
+  }
+}
+.about {
+  h2 {
+    margin-bottom: 10px;
+    max-width: 250px;
+  }
+  p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+
+    max-width: 320px;
+    margin: 0 auto;
+    @include themify($themes) {
+      color: themed("text-1");
+    }
+  }
+
+  .about-section-left {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    align-items: center;
+  }
+  .about-section-content-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 59px;
+    flex-wrap: wrap;
+    padding: 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 8px;
+    @include themify($themes) {
+      background: themed("bg-2");
+      border-color: themed("border-8");
+    }
+  }
+  .about-img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  /* .about-content-box {
+  } */
+  .about-content-sub-box {
+    padding: 10px;
+
+    border-radius: 8px;
+  }
+  .about-content-sub-box h4 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 34px;
+    text-align: center;
+    @include themify($themes) {
+      color: themed("text-1");
+    }
+  }
+  .about .about-content-sub-box-text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23px;
+
+    text-align: center;
+    max-width: 350px;
+    @include themify($themes) {
+      color: themed("text-2");
+    }
+  }
+  .content {
+    h3 {
+      font-weight: 600;
+      font-size: 26px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      li {
+        padding-bottom: 10px;
+      }
+      i {
+        font-size: 20px;
+        padding-right: 4px;
+        color: #fff;
+      }
+    }
+    p {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    @media (max-width: 960px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    .grid-item:nth-child(2) {
+      grid-row: 1 / 2;
+      grid-row: span 2;
+    }
+  }
+}

@@ -1,0 +1,217 @@
+//----------------------------------------------------------//
+// ACCORDION
+//----------------------------------------------------------//
+
+#faq {
+  @include themify($themes) {
+    background: themed("bg-body");
+  }
+}
+
+.accordion-wrapper {
+  .card {
+    margin-top: 1.25rem;
+    width: 100%;
+    border: 0;
+    //  border-bottom: 1px solid #dedede;
+
+    &.plain {
+      background: none;
+      border: 0;
+      margin-bottom: 0;
+      box-shadow: none;
+
+      .card-body {
+        padding: 0 0 0 1.1rem;
+      }
+
+      .card-header {
+        padding: 0 0 0.8rem 0;
+
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 36px;
+        letter-spacing: 0em;
+        text-align: left;
+        @include themify($themes) {
+          color: themed("text-1");
+        }
+        .collapsed {
+          font-size: 24px;
+          font-weight: 700;
+          line-height: 36px;
+          letter-spacing: 0em;
+          text-align: left;
+
+          @include themify($themes) {
+            color: themed("text-2");
+          }
+        }
+
+        button {
+          padding: 0 0 0 1.1rem;
+
+          &:before {
+            left: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .card-header {
+    margin-bottom: 0;
+    background: transparent;
+    border: 0;
+    padding: 0.9rem 1.3rem 0.85rem;
+
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: left;
+
+    @include themify($themes) {
+      color: themed("text-1");
+    }
+
+    button {
+      cursor: pointer;
+      width: 100%;
+      padding: 0 0 0 1rem;
+      text-align: left;
+      margin: 0;
+      border: 0;
+      background: none;
+
+      &:before {
+        position: absolute;
+        left: 1.3rem;
+        font-weight: normal;
+        width: 1rem;
+        margin-top: -0.25rem;
+        margin-left: -0.3rem;
+        display: inline-block;
+        transition: transform 0.3s ease; /* Add transition for the accordion icon */
+      }
+
+      &.collapsed {
+        &:before {
+          transform: rotate(0deg);
+        }
+      }
+
+      &:hover {
+        color: red;
+      }
+    }
+  }
+}
+
+.accordion-item {
+  background: transparent;
+  transition: 0.3s ease;
+  &:hover {
+    background: #c868c553;
+    color: #fff;
+  }
+}
+
+.accordion-item .card-body {
+  padding: 0 1.25rem 0.25rem 2.35rem;
+
+  p {
+    font-size: 18px;
+    font-weight: 400;
+    padding-top: 20px;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+    white-space-collapse: preserve-breaks;
+  }
+}
+
+.accordion-item.icon {
+  .card-body {
+    padding: 0 1.25rem 0.25rem 2.8rem;
+  }
+
+  button {
+    padding: 0 0 0 1.5rem;
+    display: flex;
+    align-items: center;
+
+    &:before {
+      display: none;
+    }
+
+    > span {
+      position: absolute;
+      left: 1.3rem;
+
+      i {
+        font-size: larger;
+      }
+    }
+  }
+}
+
+//----------------------------------------------------------//
+// COLLAPSE
+//----------------------------------------------------------//
+
+.collapse-link {
+  &:before {
+    font-weight: normal;
+    width: 1rem;
+    margin-left: -0.3rem;
+    margin-right: 0.4rem;
+    display: inline-block;
+    vertical-align: -4px;
+  }
+
+  &.collapsed {
+    &:before {
+      transform: rotate(0deg);
+    }
+  }
+
+  &:hover {
+    /* Add hover effect styles */
+  }
+}
+
+.accordion-collapse > .card-footer {
+  padding: 0;
+}
+.accordion-collapse {
+  &.show {
+    transition: 0.3s ease;
+  }
+}
+.accordion-button {
+  font-size: 24px !important;
+  font-weight: 800 !important;
+  line-height: 36px !important;
+  letter-spacing: 0em !important;
+  text-align: left !important;
+  transition: box-shadow 0.3s ease, border-bottom-width 0.3s ease,
+    color 0.3s ease !important;
+  padding: 0 !important;
+  background-color: transparent;
+  @include themify($themes) {
+    color: themed("text-1");
+  }
+}
+
+.accordion-button:not(.collapsed) {
+  box-shadow: none;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  background: transparent;
+
+  @include themify($themes) {
+    color: themed("text-1");
+    border-color: themed("border-8");
+  }
+}

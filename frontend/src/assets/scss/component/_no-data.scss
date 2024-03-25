@@ -1,0 +1,19 @@
+.no-data {
+  height: 350px;
+}
+.no-data-component {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 350px;
+  gap: 15px;
+  span {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #777777;
+  }
+}

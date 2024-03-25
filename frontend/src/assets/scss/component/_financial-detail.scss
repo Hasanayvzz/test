@@ -1,0 +1,97 @@
+.financial-detail {
+  align-items: flex-start;
+  background-color: #748fb51f;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 20px;
+  position: relative;
+
+  .financial-wrapper {
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    flex: 0 0 auto;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    .name-text {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 28px;
+      letter-spacing: 0em;
+      text-align: left;
+
+      @include themify($themes) {
+        color: themed("text-5");
+      }
+    }
+    .info-text {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 34px;
+      letter-spacing: 0em;
+      text-align: right;
+      @include themify($themes) {
+        color: themed("text-1");
+      }
+    }
+  }
+  h3 {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 34px;
+    letter-spacing: 0em;
+    text-align: left;
+
+    @include themify($themes) {
+      color: themed("text-2");
+    }
+  }
+}
+
+.roadmap {
+  align-items: center;
+  background-color: rgba(116, 143, 181, 0.6588235294);
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 2px 20px;
+  position: relative;
+  height: 82px;
+
+  .milestone-title {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 34px;
+    letter-spacing: 0em;
+
+    color: #fff;
+    @media (max-width: 960px) {
+      font-size: 16px;
+      line-height: 18px;
+    }
+  }
+  @media (max-width: 960px) {
+    height: 60px;
+    padding: 12px 20px;
+  }
+}
+.roadmap-list {
+  padding: 20px 15px;
+  .milestone-detail {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    @include themify($themes) {
+      color: themed("text-1");
+    }
+  }
+}
+.no-wrap {
+  text-wrap: nowrap;
+}

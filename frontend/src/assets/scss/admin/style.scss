@@ -1,0 +1,129 @@
+.userlist-title {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #b5b5b5;
+  display: block;
+  padding-bottom: 5px;
+}
+
+.userlist-desc {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #28324b;
+}
+
+.userlist-info {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #28324b;
+  padding-bottom: 5px;
+}
+
+.active-color {
+  color: #77c280;
+
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.userlist-top {
+  .card {
+    height: 105px;
+    display: flex;
+    justify-content: center;
+    border-radius: 8px;
+    border-color: #ffff;
+  }
+}
+
+.change-box {
+  padding: 20px;
+  position: absolute;
+  background: #fff;
+  top: 90px;
+  right: 10px;
+  z-index: 9999;
+  border-radius: 8px;
+  border: 1px solid #7c7e894d;
+}
+
+.identity-bg {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  background-image: url("/common/verify/identity.png");
+  padding: 30px;
+  border-radius: 8px;
+  .verify-name {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #263261;
+  }
+  .verify-nav {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #748fb5;
+  }
+}
+
+.address-bg {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  background-image: url("/common/verify/address.png");
+  padding: 30px;
+  border-radius: 8px;
+  .verify-name {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #263261;
+  }
+  .verify-nav {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #748fb5;
+  }
+}
+
+.map-container {
+  width: 100%;
+  height: 250px;
+}
+.my-input {
+  border: 2px solid #bdbdbd;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 12px;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.my-input:hover {
+  border-color: #11998e;
+  /* Rengi değiştirmek için istediğiniz rengi kullanabilirsiniz */
+}

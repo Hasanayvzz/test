@@ -1,0 +1,23 @@
+.step-bg {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 10px 50px;
+  gap: 30px;
+
+  .tab {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    border-bottom: 4px solid #ffffff;
+    color: #b5b5b5;
+  }
+  .active-step {
+    border-bottom: 4px solid #f9b34e;
+    padding: 10px 0;
+    color: #1e252b;
+  }
+}

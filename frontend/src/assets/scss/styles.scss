@@ -1,0 +1,96 @@
+@import "./component/theme";
+@import "./landingPage/hero";
+@import "./landingPage/switch";
+@import "./component/button";
+@import "./component/cardd";
+@import "./component/color";
+@import "./component/no-data";
+@import "./landingPage/about";
+@import "./landingPage/utility-token";
+@import "./landingPage/project";
+@import "./component/footer";
+@import "./component/hover";
+@import "./landingPage/faq";
+@import "./component/header";
+@import "./component/navbar";
+@import "./landingPage/title";
+@import "./landingPage/cta";
+@import "./landingPage/backtop";
+@import "./component/navbar-two";
+@import "./texts.scss";
+@import "./investment-dashboard/index.scss";
+@import "./component/card-detail";
+@import "./buttons.scss";
+@import "./component/modal";
+@import "./component/input";
+@import "./component/financial-detail";
+@import "./component/team-member";
+@import "./landingPage/stake";
+@import "./component/tabs";
+@import "./component/chart";
+@import "./component/step";
+@import "./component/form";
+@import "./admin/style";
+@import "./component/loader";
+@import "./component/_w3";
+@import "./landingPage/kvkk";
+@import "./component/notification";
+@import "./component/news";
+@import "./component/blog-card";
+@import "./auth/auth";
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+
+body {
+  font-family: "Comic Neue", cursive;
+}
+::-webkit-scrollbar-thumb {
+  background: #7f8ea3;
+}
+::-webkit-scrollbar-track {
+  background: #f2f2f2;
+}
+::-webkit-scrollbar {
+  width: 0.438rem;
+  height: 0.438rem;
+}
+.theme-dark {
+  background: #1e252b;
+}
+
+ul {
+  margin: 0;
+}
+.no-scroll {
+  overflow: hidden;
+}
+
+.slider {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+  grid-template-rows: auto;
+  gap: 20px;
+  width: 100%;
+  margin-right: 50px;
+}
+.preview-container {
+  height: 73px;
+  width: 100px;
+  object-fit: contain;
+  background-color: #e7e7e7;
+  background-size: 100% 100%;
+}
+@media (max-width: 866px) {
+  .flex-cont {
+    flex-direction: column;
+  }
+  .preview-grid {
+    margin-right: 0px;
+  }
+}

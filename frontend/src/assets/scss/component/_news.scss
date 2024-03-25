@@ -1,0 +1,44 @@
+.news-img-box {
+  img {
+    border-radius: 12px;
+    width: 100%;
+  }
+}
+.news-title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: left;
+
+  @include themify($themes) {
+    color: themed("text-2");
+  }
+}
+.news-detail {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+  @include themify($themes) {
+    color: themed("text-2");
+  }
+}
+.news-date {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #b5b5b5;
+}
+.news-read {
+  color: #c868c4;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: center;
+}
