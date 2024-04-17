@@ -1,5 +1,13 @@
 .text-32-600 {
-  color: #28324b;
+  @include themify($themes) {
+    color: themed("text-color");
+  }
+  font-size: 32px;
+  line-height: 38.01px;
+  font-weight: 600;
+}
+.text-32-600-white {
+  color: #f9f9f9;
   font-size: 32px;
   line-height: 38.01px;
   font-weight: 600;
@@ -13,11 +21,22 @@
   font-weight: 700;
   line-height: 29.26px;
 }
+.text-24-700 {
+  @include themify($themes) {
+    color: themed("text-color");
+  }
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29.26px;
+}
 .text-24-700-yellow {
   color: #f9b34e;
   font-size: 24px;
   font-weight: 700;
   line-height: 29.26px;
+}
+.themed-bg {
+  min-height: 44vh;
 }
 .text-18-500 {
   color: #28324b;
@@ -30,6 +49,29 @@
   font-size: 18px;
   font-weight: 500;
   line-height: 21.94px;
+}
+.text-16-400-blue {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #7b809a;
+  span {
+    color: #9c224b;
+    text-decoration: underline;
+  }
+  a {
+    text-decoration: underline;
+  }
+  a:hover {
+    text-decoration: underline;
+    color: #f9b34f !important;
+  }
+  span:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }
 .text-20-600 {
   color: #28324b;
@@ -65,8 +107,11 @@
 .text-16-500 {
   font-weight: 500;
   font-size: 16px;
-  color: #2f3a4b;
+
   line-height: 24px;
+  @include themify($themes) {
+    color: themed("text-color");
+  }
 }
 .text-16-600-purple {
   font-weight: 600;
@@ -83,8 +128,38 @@
 .text-16-600 {
   font-weight: 600;
   font-size: 16px;
-  color: #28324b;
   line-height: 19.5px;
+  @include themify($themes) {
+    color: themed("text-color");
+  }
+}
+.text-14-600 {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0em;
+
+  &.dark {
+    color: #e91f63;
+  }
+
+  &.light {
+    color: #344767;
+  }
+}
+.text-14-400-gray-2 {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0em;
+  color: #7b809a;
+}
+.text-14-400-gray {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0em;
+  color: #7b809a;
 }
 
 .text-24-600-gray {

@@ -116,14 +116,42 @@
   height: 250px;
 }
 .my-input {
-  border: 2px solid #bdbdbd;
+  border: 1px solid #bdbdbd;
   padding: 10px;
   font-size: 16px;
-  border-radius: 12px;
+  width: 100%;
+  border-radius: 4px;
   transition: border-color 0.3s ease-in-out;
+  outline: none;
 }
 
 .my-input:hover {
-  border-color: #11998e;
-  /* Rengi değiştirmek için istediğiniz rengi kullanabilirsiniz */
+  border-color: #f9b34d;
+}
+.my-input:focus-visible {
+  border: 2px solid #f9b34d;
+}
+.my-input:focus {
+  border: 2px solid #f9b34d;
+}
+
+.right-arrow {
+  position: absolute;
+  top: 50%;
+  right: 32px;
+  font-size: 3rem;
+  color: #000;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+.left-arrow {
+  position: absolute;
+  top: 50%;
+  left: 32px;
+  font-size: 3rem;
+  color: #000;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
 }

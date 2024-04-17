@@ -6,6 +6,7 @@ import {
   ComboboxPopover,
 } from "@reach/combobox";
 import { useContext, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
@@ -19,7 +20,6 @@ export const PlacesAutoComplete = ({ formik, setSelected, selected }: any) => {
     clearSuggestions,
   } = usePlacesAutocomplete();
   const handleSelect = async (address: any) => {
-    debugger;
     setValue(address, false);
     clearSuggestions();
     const results = await getGeocode({ address });
@@ -31,8 +31,7 @@ export const PlacesAutoComplete = ({ formik, setSelected, selected }: any) => {
     console.log("lng", lng);
     setSelected({ lat, lng });
   };
-  console.log("selected n e ", selected);
-  console.log("formik var mı ", formik);
+  const { t } = useTranslation();
   return (
     <Combobox onSelect={handleSelect}>
       <ComboboxInput
@@ -42,9 +41,9 @@ export const PlacesAutoComplete = ({ formik, setSelected, selected }: any) => {
           setValue(e.target.value);
           formik.handleChange(e);
         }}
-        className="combobox-input"
+        className="combobox-input my-input"
         disabled={!ready}
-        placeholder="Search and adress"
+        placeholder={t("createBlog.searchAddress")}
       />
       <ComboboxPopover style={{ zIndex: 1200 }}>
         <ComboboxList>

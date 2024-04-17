@@ -21,15 +21,15 @@ const ImageSlider = ({ slides, SliderData }: any) => {
     <section className="slider">
       <img src="" alt="" />
       <img
-        src="/images/icons/left-ic.svg"
+        src="/icons/left-ic.svg"
         style={{ height: 32 }}
-        className="left-arrow"
+        className="left-arrow pointer"
         onClick={prevSlide}
       />
       <img
-        src="/images/icons/l-right-ic.svg"
+        src="/icons/l-right-ic.svg"
         style={{ height: 32 }}
-        className="right-arrow"
+        className="right-arrow pointer"
         onClick={nextSlide}
       />
       {SliderData.map((slide: any, index: number) => {

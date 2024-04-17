@@ -121,7 +121,7 @@ module.exports = require("next/dist/shared/lib/app-router-context.js");
 
 /***/ }),
 
-/***/ "../shared/lib/head-manager-context":
+/***/ "./head-manager-context":
 /*!***************************************************************!*\
   !*** external "next/dist/shared/lib/head-manager-context.js" ***!
   \***************************************************************/
@@ -330,7 +330,7 @@ module.exports = require("next/dist/shared/lib/router/utils/is-dynamic.js");
 
 /***/ }),
 
-/***/ "../shared/lib/router/utils/parse-path":
+/***/ "./utils/parse-path":
 /*!******************************************************************!*\
   !*** external "next/dist/shared/lib/router/utils/parse-path.js" ***!
   \******************************************************************/
@@ -374,7 +374,7 @@ module.exports = require("next/dist/shared/lib/router/utils/querystring.js");
 
 /***/ }),
 
-/***/ "../shared/lib/router/utils/remove-trailing-slash":
+/***/ "./utils/remove-trailing-slash":
 /*!*****************************************************************************!*\
   !*** external "next/dist/shared/lib/router/utils/remove-trailing-slash.js" ***!
   \*****************************************************************************/

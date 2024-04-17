@@ -1,6 +1,7 @@
 const Auth = require("../models/auth.js");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const Blog = require("../models/blog.js");
 
 const register = async (req, res) => {
   try {
@@ -88,13 +89,22 @@ const deleteUser = async (req, res) => {
   }
 };
 
-const getUserById = async (req, res) => {
+const addProfileImage = async (req, res) => {
   try {
-    const { userId } = req.params;
-    const user = await Auth.findById(userId);
+    const { userId, profileImage } = req.body;
+
+    // Kullanıcıyı bulun
+    let user = await Auth.findById(userId);
     if (!user) {
       return res.status(404).json({ message: "Kullanıcı bulunamadı" });
     }
+
+    // Profil resmini güncelle
+    if (profileImage) user.profileImage = profileImage;
+
+    // Değişiklikleri kaydet
+    user = await user.save();
+
     res.status(200).json({
       status: "OK",
       user,
@@ -104,4 +114,54 @@ const getUserById = async (req, res) => {
   }
 };
 
-module.exports = { login, register, getAllUsers, deleteUser, getUserById };
+const getUserById = async (req, res) => {
+  try {
+    const { userId } = req.params;
+
+    // Kullanıcıyı bul
+    const userPromise = Auth.findById(userId);
+
+    // Kullanıcının bloglarını bul
+    const blogsPromise = Blog.find({ userId: userId });
+
+    // Kullanıcı ve blogları paralel olarak al
+    const [user, blogs] = await Promise.all([userPromise, blogsPromise]);
+
+    if (!user) {
+      return res.status(404).json({ message: "Kullanıcı bulunamadı" });
+    }
+
+    // Yorum ve yıldız sayılarını hesapla
+    let totalComments = 0;
+    let totalStars = 0;
+    for (const blog of blogs) {
+      totalComments += blog.comments.length;
+      totalStars += blog.stars.length;
+    }
+
+    // Aritmetik ortalama hesapla
+    const averageStars = blogs.length > 0 ? totalStars / blogs.length : 0;
+
+    res.status(200).json({
+      status: "OK",
+      user: {
+        ...user.toJSON(),
+        totalBlogs: blogs.length,
+        totalComments: totalComments,
+        totalStars: totalStars,
+        averageStars: averageStars,
+      },
+    });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+module.exports = {
+  login,
+  register,
+  getAllUsers,
+  deleteUser,
+  getUserById,
+  addProfileImage,
+};

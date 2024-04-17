@@ -4,6 +4,7 @@ import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 import "@reach/combobox/styles.css";
 import { PlacesAutoComplete } from "./PlacesAutoComplete";
 import { useRouter } from "next/router";
+import { useTranslation } from "react-i18next";
 
 const options = {
   disableDefaultUI: false,
@@ -23,7 +24,7 @@ const Map = ({ formik, lat, lng }: any) => {
   const router = useRouter();
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "AIzaSyBQhMRwT_YsWhkq8hE5k8kDl9wPguOiFuc", // Replace with your API key
+    googleMapsApiKey: "", // Replace with your API key
     libraries: ["places"],
   });
   console.log("loadError", loadError);
@@ -68,14 +69,21 @@ const Map = ({ formik, lat, lng }: any) => {
       }
     }
   }, [selected, formikLocation, map]);
+  const { t } = useTranslation();
 
   return (
     <>
       {isLoaded && (
-        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-          <p className="location-text">Address</p>
-
-          <p className="location-text">Set Location</p>
+        <div
+          style={{ display: "flex", flexDirection: "column", gap: 12 }}
+          className="pb-5">
+          <p className="text-16-600 mt-5">{t("blogDetail.address")}</p>
+          <PlacesAutoComplete
+            setSelected={setSelected}
+            formik={formik}
+            selected={selected}
+          />
+          <p className="text-16-600">{t("blogDetail.setLocation")}</p>
           <GoogleMap
             zoom={14}
             center={center}
@@ -94,11 +102,6 @@ const Map = ({ formik, lat, lng }: any) => {
               <Marker position={{ lat: selected.lat, lng: selected.lng }} />
             )}
           </GoogleMap>
-          <PlacesAutoComplete
-            setSelected={setSelected}
-            formik={formik}
-            selected={selected}
-          />
         </div>
       )}
     </>

@@ -36,7 +36,8 @@
 
   "cta": {
     "cta": "Would you like to publish your travels on Seyahat Düşleri?",
-    "ctaButton": "Register"
+    "ctaButton": "Register",
+    "publishBlog": "Publish Your Travel"
   },
 
   "footer": {
@@ -69,5 +70,36 @@
     "newsAndBlog": "News & Blog",
     "newsTitle": "Latest Updates from",
     "read": "Read"
+  },
+
+  "blogCard": {
+    "star": "Star",
+    "country": "Country",
+    "price": "Approximately Price",
+    "author": "Author",
+    "date": "Release Date",
+    "detail": "Detail"
+  },
+  "createBlog": {
+    "createBlog": "Create Blog",
+    "shareText": "Share the unique beauties in our world with our community and guide people.",
+    "mainImage": "Main Image",
+    "detailImages": "Detail Images",
+    "searchAddress": "Search and Address"
+  },
+  "profile": {
+    "profileImage": "Profile Image"
+  },
+  "blogDetail": {
+    "publishedOn": "Published On",
+    "location": "Location",
+    "comments": "Comments",
+    "country": "Country",
+    "price": "Price",
+    "mainImage": "Main Image",
+    "detailImages": "Detail Images",
+    "address": "Address",
+    "setLocation": "Set Location",
+    "enterFee": "Enter approximate fee"
   }
 }

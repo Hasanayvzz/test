@@ -10,12 +10,32 @@ const BlogSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+  blogName: {
+    type: String,
+    required: false,
+    trim: true,
+  },
   placeImage: {
     type: String,
     required: true,
     trim: true,
   },
+  blogText: {
+    type: String,
+    required: true,
+    trim: false,
+  },
+  currency: {
+    type: String,
+    required: false,
+    trim: true,
+  },
 
+  status: {
+    type: Boolean,
+    required: false,
+    trim: true,
+  },
   placeImageDetails: {
     type: Array,
     required: true,
@@ -47,14 +67,14 @@ const BlogSchema = new mongoose.Schema({
     trim: true,
   },
   lat: {
-    type: String,
+    type: Number,
     required: false,
-    trim: true,
+    trim: false,
   },
   lng: {
-    type: String,
+    type: Number,
     required: false,
-    trim: true,
+    trim: false,
   },
   date: {
     type: Date,

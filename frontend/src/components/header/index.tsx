@@ -175,13 +175,13 @@ const Header: React.FC<IHeader> = ({ page }) => {
                 </li>
                 <li
                   className={`dashboard-items ${
-                    activeMenuItem === "launchpad" ? "active" : ""
+                    activeMenuItem === "all-blogs" ? "active" : ""
                   }`}>
                   <span
                     className={`dashboard-items ${
-                      activeMenuItem === "launchpad" ? "active" : ""
+                      activeMenuItem === "all-blogs" ? "active" : ""
                     }`}
-                    onClick={() => handleNavClick("/launchpad", "launchpad")}>
+                    onClick={() => handleNavClick("/all-blogs", "all-blogs")}>
                     {t("navbar.allBlogs")}
                   </span>
                 </li>
@@ -246,7 +246,7 @@ const Header: React.FC<IHeader> = ({ page }) => {
                           <div className={"d-flex align-items-center gap-3"}>
                             <img src="/images/icons/user-avatar.svg" alt="" />
                             <p className={`${theme} account-text`}>
-                              {t("navbar.hello")}, {settingsData.fullName}
+                              {t("navbar.hello")}, {settingsData?.fullName}
                             </p>
                           </div>
 

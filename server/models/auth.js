@@ -10,6 +10,10 @@ const AuthSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  profileImage: {
+    type: String,
+    required: false,
+  },
   password: {
     type: String,
     required: true,

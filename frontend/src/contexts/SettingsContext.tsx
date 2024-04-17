@@ -14,10 +14,13 @@ import Cookies from "js-cookie";
 import AuthContext from "./AuthContext";
 import { ApiRequest } from "../pages/api";
 import { useRouter } from "next/router";
+import { LoaderContext } from "./loaderContext";
 
 export interface ISettingsContextProps {
   settingsData: any;
   setSettingsData: any;
+  setTrigger: any;
+  trigger: any;
 }
 const SettingsContext = createContext<ISettingsContextProps>(
   {} as ISettingsContextProps
@@ -34,6 +37,7 @@ export const SettingsContextProvider: FC<ISettingsContextProviderProps> = ({
     fullName: string;
     password: string;
     userRole: string;
+
     __v: 0;
     _id: string;
   }>();
@@ -41,13 +45,16 @@ export const SettingsContextProvider: FC<ISettingsContextProviderProps> = ({
   // }
   const { user, handleLogout } = useContext(AuthContext);
   const accessToken = Cookies.get("accessToken");
+  const [trigger, setTrigger] = useState<boolean>(false);
+  const { handleLoading } = useContext(LoaderContext);
   const handleGetSettingsData = useCallback(async () => {
-    user &&
-      accessToken &&
-      (await ApiRequest.getUserById(user)
+    if (user && accessToken) {
+      handleLoading(true);
+      await ApiRequest.getUserById(user)
         .then((res: any) => {
           setSettingsData(res.user);
           console.log("res", res);
+          handleLoading(false);
         })
         .catch((e) => {
           toast.error("Token Expired please login.", {
@@ -60,24 +67,26 @@ export const SettingsContextProvider: FC<ISettingsContextProviderProps> = ({
             theme: "light",
             autoClose: 3000,
           });
+          handleLoading(false);
 
           Cookies.remove("accessToken");
-          Cookies.remove("refreshToken");
-          localStorage.removeItem("cocktail_user");
-        }));
+        });
+    }
   }, [user]);
   useEffect(() => {
     handleGetSettingsData();
 
     return () => {};
-  }, [handleGetSettingsData]);
+  }, [handleGetSettingsData, trigger]);
 
   const value = useMemo(
     () => ({
       settingsData,
       setSettingsData,
+      setTrigger,
+      trigger,
     }),
-    [settingsData]
+    [settingsData, trigger]
   );
   return (
     <SettingsContext.Provider value={value}>

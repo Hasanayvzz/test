@@ -18,59 +18,30 @@ import Header from "../../../components/header";
 import WhiteLogo from "../../../../public/img/logo/white-logo.svg";
 import DarkLogo from "../../../../public/img/logo/dark-logo.svg";
 import BlogCard from "../../../components/Blogcard";
+import { ApiRequest } from "../../../pages/api";
+import { AppLoaderWrapper } from "../../../components/Loader/style";
+import Loader from "../../../components/Loader";
+import SettingsContext from "../../../contexts/SettingsContext";
 
 function HomePage() {
   const { theme } = useTheme();
   const { t, i18n } = useTranslation();
-  const projectData = [
-    {
-      blogName: "Muğla/fethiye",
-      leading: "/mock/hmn-1.jpg",
-      blogImage: "/mock/2.jpeg",
-      star: "4",
-      country: "Austria",
-      approximatelyPrice: "$500-$1000",
-      author: "John Snow",
-      date: "10/02/2024",
-    },
-    {
-      blogName: "Villa Golden",
-      leading: "/mock/hmn-2.png",
-      blogImage: "/mock/10.jpeg",
-      star: "4",
-      country: "England",
-      approximatelyPrice: "$500-$1000",
-      author: "Lagertha Lothbrok",
-      date: "25/01/2024",
-    },
-    {
-      blogName: "Villa Akra",
-      leading: "/mock/hmn-3.png",
-      blogImage: "/mock/15.jpeg",
-      star: "5",
-      country: "Austria",
-      approximatelyPrice: "$500-$1000",
-      author: "Amir Khan",
-      date: "12/03/2024",
-    },
-    {
-      blogName: "Villa Akra",
-      leading: "/mock/hmn-3.png",
-      blogImage: "/1920.jpg",
-      star: "5",
-      country: "Austria",
-      approximatelyPrice: "$500-$1000",
-      author: "Amir Khan",
-      date: "12/03/2024",
-    },
-  ];
+  const [blogs, setBlogs] = useState([]);
+
   useEffect(() => {
     Aos.init({
       duration: 1000,
       once: true,
     });
+  }, [blogs]);
+
+  useEffect(() => {
+    ApiRequest.getAllBlogs().then((res) => {
+      setBlogs(res.blogs);
+    });
   }, []);
 
+  const { settingsData } = useContext(SettingsContext);
   return (
     <>
       <ScrollToTop color="#fff" smooth style={{ backgroundColor: "#F9B34E" }} />
@@ -82,7 +53,7 @@ function HomePage() {
             <h1>{t("hero.title")} </h1>
             <div className="d-flex gap-2 align-items-center">
               <button className="btn-get-register scrollto button button--aylen button--border-thick button--inverted button--text-upper button--size-s">
-                <a href="/launchpad" className="white-color">
+                <a href="/all-blogs" className="white-color">
                   {t("hero.startButton")}
                 </a>
               </button>
@@ -179,8 +150,8 @@ function HomePage() {
         </section>
         {/* <!-- End About Section --> */}
 
-        {/* <!-- ======= Projects Section ======= --> */}
-        <section id="projects" className={`portfolio ${theme}`}>
+        {/* <!-- =======  Section ======= --> */}
+        <section id="" className={`portfolio ${theme}`}>
           <div className="container-xxl">
             <div className="section-title" data-aos="zoom-in-down">
               <div className="d-flex  gap-2 mb-3">
@@ -215,7 +186,11 @@ function HomePage() {
               className="projects-container"
               data-aos="fade-down"
               data-aos-duration="1500">
-              <BlogCard blogData={projectData}></BlogCard>
+              {blogs ? (
+                <BlogCard blogData={blogs}></BlogCard>
+              ) : (
+                <Loader></Loader>
+              )}
             </div>
           </div>
         </section>
@@ -229,15 +204,8 @@ function HomePage() {
 
               <Link
                 className="btn-get-register mt-5"
-                href="/auth/register"
+                href={settingsData ? "/create-new-blog" : "/auth/register"}
                 id="button-7">
-                <div id="dub-arrow">
-                  <img
-                    src="/images/icons/plane.svg"
-                    className=" img-fluid"
-                    alt=""
-                  />
-                </div>
                 <div className="cloud">
                   <Image
                     width={30}
@@ -247,7 +215,9 @@ function HomePage() {
                     alt=""
                   />
                 </div>
-                <span className="ms-3">{t("cta.ctaButton")}</span>
+                <span className="ms-3">
+                  {settingsData ? t("cta.publishBlog") : t("cta.ctaButton")}
+                </span>
               </Link>
             </div>
           </div>

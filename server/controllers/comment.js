@@ -3,7 +3,7 @@ const Blog = require("../models/blog.js");
 
 const createComment = async (req, res) => {
   try {
-    const { userId, blogId, content } = req.body;
+    const { userId, blogId, content, createdDate, userName } = req.body;
 
     // Kullanıcıyı bul
     const user = await User.findById(userId);

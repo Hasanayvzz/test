@@ -1,14 +1,26 @@
 {
-  "[blogId]/index.tsx -> ../../views/blog-detail/index": {
-    "id": "[blogId]/index.tsx -> ../../views/blog-detail/index",
+  "blogs/[blogId]/index.tsx -> ../../../views/blog-detail/index": {
+    "id": "blogs/[blogId]/index.tsx -> ../../../views/blog-detail/index",
     "files": [
       "static/chunks/src_views_blog-detail_index_tsx.js"
+    ]
+  },
+  "create-new-blog/index.tsx -> ../../views/create-new-blog/index": {
+    "id": "create-new-blog/index.tsx -> ../../views/create-new-blog/index",
+    "files": [
+      "static/chunks/src_views_create-new-blog_index_tsx.js"
     ]
   },
   "index.tsx -> ../views/landing/homePage/index": {
     "id": "index.tsx -> ../views/landing/homePage/index",
     "files": [
       "static/chunks/src_views_landing_homePage_index_tsx.js"
+    ]
+  },
+  "my-profile/index.tsx -> ../../views/my-profile/index": {
+    "id": "my-profile/index.tsx -> ../../views/my-profile/index",
+    "files": [
+      "static/chunks/src_views_my-profile_index_tsx.js"
     ]
   }
 }

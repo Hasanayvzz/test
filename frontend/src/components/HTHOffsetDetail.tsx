@@ -12,7 +12,7 @@ const HTHOffsetDetail = ({ data }: any) => {
           backgroundSize: "100% 100%",
 
           backgroundRepeat: "no-repeat",
-          backgroundImage: `url(${data?.blogImage})`,
+          backgroundImage: `url(${"/detail-banner.webp"})`,
         }}></div>
 
       {/* <div className="properties-bg">

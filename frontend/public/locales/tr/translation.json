@@ -3,7 +3,7 @@
     "home": "Ana Sayfa",
     "allBlogs": "Tüm Bloglar",
     "adminDashboard": "Yönetici",
-    "login": "Giriş Yap",
+    "login": "Giriş",
     "register": "Kayıt Ol",
     "hello": "Merhaba",
     "myProfile": "Profilim",
@@ -43,7 +43,8 @@
 
   "cta": {
     "cta": "Seyahatlerinizi Seyahat Düşleri'nde yayınlamak ister misiniz?",
-    "ctaButton": "Kayıt Olun"
+    "ctaButton": "Kayıt Olun",
+    "publishBlog": "Seyahatlerinizi Yayınlayın"
   },
 
   "footer": {
@@ -77,5 +78,38 @@
     "newsAndBlog": "Haberler ve Blog",
     "newsTitle": "Son Güncellemeler",
     "read": "Oku"
+  },
+  "blogCard": {
+    "star": "Yıldız",
+    "country": "Ülke",
+    "price": "Yaklaşık Ücret",
+    "author": "Yazar",
+    "date": "Yayınlanma Tarihi",
+    "detail": "Detay",
+    "shareText": "Dünyamızdaki eşsiz güzellikleri topluluğumuzla paylaşın, insanlara yol gösterin.",
+    "mainImage": "Ana Resim",
+    "detailImages": "Detay Resimleri"
+  },
+  "profile": {
+    "profileImage": "Profil Resmi"
+  },
+  "createBlog": {
+    "createBlog": "Blog Oluştur",
+    "shareText": "Dünyamızdaki eşsiz güzellikleri topluluğumuzla paylaşın, insanlara yol gösterin.",
+    "mainImage": "Main Image",
+    "detailImages": "Detail Images",
+    "searchAddress": "Adres ara"
+  },
+  "blogDetail": {
+    "publishedOn": "Yayınlanma Tarihi",
+    "location": "Konum",
+    "comments": "Yorumlar",
+    "country": "Ülke",
+    "price": "Fiyat",
+    "mainImage": "Ana Görsel",
+    "detailImages": "Detay Görseller",
+    "address": "Adres",
+    "setLocation": "Konumu Ayarla",
+    "enterFee": "Yaklaşık ücreti girin"
   }
 }

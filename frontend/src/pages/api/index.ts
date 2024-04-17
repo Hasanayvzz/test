@@ -37,5 +37,9 @@ export const ApiRequest = {
   //auth
   login: (payload: any) => request.post("auth/login", payload),
   register: (payload: any) => request.post("auth/register", payload),
+  createBlog: (payload: any) => request.post("blog/create", payload),
   getUserById: (id) => request.get(`auth/${id}`),
+  getAllBlogs: () => request.get(`blog/getAll`),
+  getBlogById: (id) => request.get(`blog/${id}`),
+  addImage: (payload: any) => request.post(`auth/addImage`, payload),
 };
