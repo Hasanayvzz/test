@@ -2,8 +2,5 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/blogs/[blogId]": "pages/blogs/[blogId].js",
-  "/my-profile": "pages/my-profile.js",
-  "/create-new-blog": "pages/create-new-blog.js",
-  "/": "pages/index.js"
+  "/blogs/[blogId]": "pages/blogs/[blogId].js"
 }
