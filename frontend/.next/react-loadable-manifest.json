@@ -1,8 +1,14 @@
 {
-  "blogs/[blogId]/index.tsx -> ../../../views/blog-detail/index": {
-    "id": "blogs/[blogId]/index.tsx -> ../../../views/blog-detail/index",
+  "admin-dashboard/index.tsx -> ../../views/admin-dashboard/index": {
+    "id": "admin-dashboard/index.tsx -> ../../views/admin-dashboard/index",
     "files": [
-      "static/chunks/src_views_blog-detail_index_tsx.js"
+      "static/chunks/src_views_admin-dashboard_index_tsx.js"
+    ]
+  },
+  "index.tsx -> ../views/landing/homePage/index": {
+    "id": "index.tsx -> ../views/landing/homePage/index",
+    "files": [
+      "static/chunks/src_views_landing_homePage_index_tsx.js"
     ]
   }
 }

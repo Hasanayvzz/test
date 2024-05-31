@@ -4,13 +4,24 @@ const {
   getAllBlogs,
   deleteBlog,
   getBlogById,
+  getAllBlogsExcludingImages,
+  addStarToBlog,
+  updateBlogStatus,
+  getAllBlogsExcludingPlaceImageDetails,
 } = require("../controllers/blog.js");
 const blogRouter = express.Router();
 
 //post, get , update, delete
 blogRouter.post("/create", blogCreate);
 blogRouter.get("/getAll", getAllBlogs);
+blogRouter.get("/getAllWithoutImage", getAllBlogsExcludingImages);
+blogRouter.get(
+  "/getAllWithoutPlaceImages",
+  getAllBlogsExcludingPlaceImageDetails
+);
 blogRouter.post("/delete", deleteBlog);
+blogRouter.post("/update", updateBlogStatus);
+blogRouter.post("/addStar", addStarToBlog);
 blogRouter.get("/:blogId", getBlogById);
 
 module.exports = blogRouter;

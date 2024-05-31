@@ -1,4 +1,9 @@
 {
+  "dashboard": {
+    "rowsPer": "Sayfa başına satır"
+  },
+  "userList": "Kullanıcı Listesi",
+  "blogList": "Blog Listesi",
   "navbar": {
     "home": "Ana Sayfa",
     "allBlogs": "Tüm Bloglar",
@@ -7,7 +12,21 @@
     "register": "Kayıt Ol",
     "hello": "Merhaba",
     "myProfile": "Profilim",
+    "dashboard": "Admin Paneli",
     "logOut": "Çıkış"
+  },
+  "table": {
+    "userName": "Kullanıcı Adı",
+    "userId": "Kullanıcı Id",
+    "registrationDate": "Kayıt Tarihi",
+    "dateLowercase": "Tarih",
+    "role": "Rol",
+    "blogName": "Blog Başlığı",
+    "deleteUser": "Kullanıcıyı sil",
+    "publishedDate": "Oluşturulma Tarihi",
+    "authorName": "Yazar",
+    "country": "Ülke",
+    "status": "Durum"
   },
   "hero": {
     "title": "Güzelliğiyle Büyüleyen Dünyayı Keşfet.",
@@ -43,6 +62,8 @@
 
   "cta": {
     "cta": "Seyahatlerinizi Seyahat Düşleri'nde yayınlamak ister misiniz?",
+    "meetOurAi": "Seyahat Düşleri yapay zekası ile tanışın.",
+    "chatWithAi": "Mesajlaş",
     "ctaButton": "Kayıt Olun",
     "publishBlog": "Seyahatlerinizi Yayınlayın"
   },
@@ -82,6 +103,8 @@
   "blogCard": {
     "star": "Yıldız",
     "country": "Ülke",
+    "city": "Şehir",
+    "head": "Başlık",
     "price": "Yaklaşık Ücret",
     "author": "Yazar",
     "date": "Yayınlanma Tarihi",

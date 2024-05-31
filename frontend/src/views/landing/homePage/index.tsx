@@ -19,15 +19,23 @@ import WhiteLogo from "../../../../public/img/logo/white-logo.svg";
 import DarkLogo from "../../../../public/img/logo/dark-logo.svg";
 import BlogCard from "../../../components/Blogcard";
 import { ApiRequest } from "../../../pages/api";
-import { AppLoaderWrapper } from "../../../components/Loader/style";
 import Loader from "../../../components/Loader";
 import SettingsContext from "../../../contexts/SettingsContext";
+import AuthContext from "../../../contexts/AuthContext";
+import { Modal } from "react-bootstrap";
+import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
+import ChatAIComponent from "../../../components/AIChat";
 
 function HomePage() {
   const { theme } = useTheme();
   const { t, i18n } = useTranslation();
   const [blogs, setBlogs] = useState([]);
-
+  const [aiModal, setAiModal] = useState(false);
+  const [trigger, setTrigger] = useState<boolean>(false);
+  const [myFavorites, setMyFavorites] = useState([]);
+  const { user } = useContext(AuthContext);
+  const { settingsData } = useContext(SettingsContext);
+  const [place, setPlace] = useState<any>();
   useEffect(() => {
     Aos.init({
       duration: 1000,
@@ -36,18 +44,33 @@ function HomePage() {
   }, [blogs]);
 
   useEffect(() => {
-    ApiRequest.getAllBlogs().then((res) => {
+    ApiRequest.getAllWithoutPlaceImages().then((res) => {
       setBlogs(res.blogs);
     });
   }, []);
+  const handleCloseAiModal = () => {
+    setAiModal(false);
+  };
 
-  const { settingsData } = useContext(SettingsContext);
+  useEffect(() => {
+    user &&
+      ApiRequest.getMyFavorites({
+        userId: user,
+      })
+        .then((res) => {
+          setMyFavorites(res.favoriteBlogs);
+        })
+        .catch((e) => console.log("error", e));
+  }, [trigger]);
+
   return (
     <>
       <ScrollToTop color="#fff" smooth style={{ backgroundColor: "#F9B34E" }} />
       {/* <!-- ======= Hero Section ======= --> */}
       <section id="hero" className={`text-center hero ${theme}`}>
         <Header page="landing" />
+
+        <div dangerouslySetInnerHTML={{ __html: place && place }}></div>
         <div className="container-xxl mt-5 pt-5 sticky-comp">
           <div className="banner-content" data-aos="zoom-in">
             <h1>{t("hero.title")} </h1>
@@ -101,7 +124,8 @@ function HomePage() {
                 <div className="about-section-content-wrapper grid-item">
                   <div
                     className="about-section-left  pt-4 pt-lg-0 order-2 order-lg-1 content justify-content-around"
-                    data-aos="fade-right">
+                    data-aos="fade-right"
+                  >
                     <Image src={flyIc} alt="" />
                     <div className="about-content-box">
                       <div className="about-content-sub-box">
@@ -117,7 +141,8 @@ function HomePage() {
                 <div className="about-section-content-wrapper grid-item">
                   <div
                     className="about-section-left  pt-4 pt-lg-0 order-2 order-lg-1 content justify-content-center"
-                    data-aos="fade-right">
+                    data-aos="fade-right"
+                  >
                     <Image src={flyIc} alt="" />
                     <div className="about-content-box">
                       <div className="about-content-sub-box">
@@ -132,7 +157,8 @@ function HomePage() {
                 <div className="about-section-content-wrapper grid-item">
                   <div
                     className="about-section-left  pt-4 pt-lg-0 order-2 order-lg-1 content justify-content-around"
-                    data-aos="fade-right">
+                    data-aos="fade-right"
+                  >
                     <Image src={flyIc} alt="" />
                     <div className="about-content-box">
                       <div className="about-content-sub-box">
@@ -185,12 +211,34 @@ function HomePage() {
             <div
               className="projects-container"
               data-aos="fade-down"
-              data-aos-duration="1500">
+              data-aos-duration="1500"
+            >
               {blogs ? (
-                <BlogCard blogData={blogs}></BlogCard>
+                <BlogCard
+                  blogData={blogs}
+                  favorites={myFavorites}
+                  trigger={trigger}
+                  setTrigger={setTrigger}
+                ></BlogCard>
               ) : (
                 <Loader></Loader>
               )}
+            </div>
+          </div>
+        </section>
+        <section id="cta" className="ai-cta mb-5">
+          <div className="container-xxl" data-aos="zoom-in">
+            <div className="text-center">
+              <h3>{t("cta.meetOurAi")}</h3>
+
+              <div
+                className="btn-get-register mt-5"
+                id="button-7"
+                onClick={() => setAiModal(true)}
+              >
+                <div className=""></div>
+                <span className="">{t("cta.chatWithAi")}</span>
+              </div>
             </div>
           </div>
         </section>
@@ -205,7 +253,8 @@ function HomePage() {
               <Link
                 className="btn-get-register mt-5"
                 href={settingsData ? "/create-new-blog" : "/auth/register"}
-                id="button-7">
+                id="button-7"
+              >
                 <div className="cloud">
                   <Image
                     width={30}
@@ -226,6 +275,22 @@ function HomePage() {
         {/* <!-- End Cta Section --> */}
       </main>
       <Footer />
+
+      <Modal
+        fullscreen
+        size="xl"
+        show={aiModal}
+        onHide={handleCloseAiModal}
+        style={{ zIndex: "9999" }}
+      >
+        <Modal.Header closeButton style={{ border: "0px" }}></Modal.Header>
+
+        <Modal.Body className="d-flex align-items-center justify-content-center">
+          <ChatAIComponent />
+        </Modal.Body>
+
+        <Modal.Footer style={{ border: "0px", padding: 10 }}></Modal.Footer>
+      </Modal>
     </>
   );
 }

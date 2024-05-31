@@ -5,6 +5,7 @@ const db = require("./config/database.js");
 const router = require("./routes/auth.js");
 const blogRouter = require("./routes/blog.js");
 const commentRouter = require("./routes/comment.js");
+const favoriteRouter = require("./routes/favorite.js");
 
 const PORT = 3005;
 
@@ -17,6 +18,7 @@ dotenv.config();
 app.use("/auth", router);
 app.use("/blog", blogRouter);
 app.use("/comment", commentRouter);
+app.use("/favorite", favoriteRouter);
 
 db();
 

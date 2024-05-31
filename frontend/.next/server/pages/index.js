@@ -66,6 +66,28 @@ eval("module.exports = __webpack_require__(/*! ./dist/shared/lib/dynamic */ \"./
 
 /***/ }),
 
+/***/ "@mui/material":
+/*!********************************!*\
+  !*** external "@mui/material" ***!
+  \********************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("@mui/material");
+
+/***/ }),
+
+/***/ "@mui/styles":
+/*!******************************!*\
+  !*** external "@mui/styles" ***!
+  \******************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("@mui/styles");
+
+/***/ }),
+
 /***/ "aos":
 /*!**********************!*\
   !*** external "aos" ***!
@@ -484,6 +506,17 @@ module.exports = require("react");
 
 /***/ }),
 
+/***/ "react-bootstrap":
+/*!**********************************!*\
+  !*** external "react-bootstrap" ***!
+  \**********************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("react-bootstrap");
+
+/***/ }),
+
 /***/ "react-dom":
 /*!****************************!*\
   !*** external "react-dom" ***!
@@ -547,6 +580,17 @@ module.exports = import("axios");;
 
 "use strict";
 module.exports = import("js-cookie");;
+
+/***/ }),
+
+/***/ "react-markdown":
+/*!*********************************!*\
+  !*** external "react-markdown" ***!
+  \*********************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = import("react-markdown");;
 
 /***/ }),
 

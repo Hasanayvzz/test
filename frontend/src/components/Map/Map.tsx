@@ -24,7 +24,7 @@ const Map = ({ formik, lat, lng }: any) => {
   const router = useRouter();
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "", // Replace with your API key
+    googleMapsApiKey: "",
     libraries: ["places"],
   });
   console.log("loadError", loadError);
@@ -76,7 +76,8 @@ const Map = ({ formik, lat, lng }: any) => {
       {isLoaded && (
         <div
           style={{ display: "flex", flexDirection: "column", gap: 12 }}
-          className="pb-5">
+          className="pb-5"
+        >
           <p className="text-16-600 mt-5">{t("blogDetail.address")}</p>
           <PlacesAutoComplete
             setSelected={setSelected}
@@ -89,7 +90,8 @@ const Map = ({ formik, lat, lng }: any) => {
             center={center}
             mapContainerClassName="map-container"
             onLoad={onMapLoad}
-            options={options}>
+            options={options}
+          >
             {formikLocation.lat && formikLocation.lng && (
               <Marker
                 position={{

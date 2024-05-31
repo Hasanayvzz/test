@@ -11,6 +11,7 @@ const blogCreate = async (req, res) => {
       lat,
       lng,
       currency,
+      city,
       authorName,
       flagImage,
       blogName,
@@ -23,8 +24,10 @@ const blogCreate = async (req, res) => {
     const newBlog = await Blog.create({
       userId,
       star,
+      city,
       authorName,
       blogText,
+
       placeImage,
       currency,
       blogName,
@@ -50,6 +53,17 @@ const blogCreate = async (req, res) => {
 const getAllBlogs = async (req, res) => {
   try {
     const blogs = await Blog.find();
+    res.status(200).json({
+      status: "OK",
+      blogs,
+    });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+const getAllBlogsExcludingImages = async (req, res) => {
+  try {
+    const blogs = await Blog.find().select("-placeImageDetails -placeImage");
     res.status(200).json({
       status: "OK",
       blogs,
@@ -90,4 +104,79 @@ const deleteBlog = async (req, res) => {
   }
 };
 
-module.exports = { blogCreate, deleteBlog, getAllBlogs, getBlogById };
+const updateBlogStatus = async (req, res) => {
+  try {
+    const { blogId, status } = req.body;
+    const updatedBlog = await Blog.findByIdAndUpdate(
+      blogId,
+      { status },
+      { new: true }
+    );
+    if (!updatedBlog) {
+      return res.status(404).json({ message: "Blog bulunamadı" });
+    }
+    res.status(200).json({
+      status: "OK",
+      updatedBlog,
+    });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+const addStarToBlog = async (req, res) => {
+  try {
+    const { blogId, userId, amount } = req.body;
+
+    const updatedBlog = await Blog.findOneAndUpdate(
+      { _id: blogId, "stars.userId": userId },
+      { $set: { "stars.$.amount": amount } },
+      { new: true }
+    );
+
+    if (!updatedBlog) {
+      const blog = await Blog.findByIdAndUpdate(
+        blogId,
+        { $push: { stars: { userId, amount } } },
+        { new: true }
+      );
+
+      if (!blog) {
+        return res.status(404).json({ message: "Blog bulunamadı" });
+      }
+
+      return res.status(200).json({
+        status: "OK",
+        updatedBlog: blog,
+      });
+    }
+
+    res.status(200).json({
+      status: "OK",
+      updatedBlog,
+    });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+const getAllBlogsExcludingPlaceImageDetails = async (req, res) => {
+  try {
+    const blogs = await Blog.find().select("-placeImageDetails ");
+    res.status(200).json({
+      status: "OK",
+      blogs,
+    });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+module.exports = {
+  blogCreate,
+  deleteBlog,
+  getAllBlogs,
+  getBlogById,
+  getAllBlogsExcludingImages,
+  updateBlogStatus,
+  addStarToBlog,
+  getAllBlogsExcludingPlaceImageDetails,
+};

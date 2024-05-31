@@ -106,20 +106,21 @@ const Login = () => {
                       aria-label="toggle password visibility"
                       onClick={handleClickShowPassword}
                       onMouseDown={handleMouseDownPassword}
-                      edge="end">
+                      edge="end"
+                    >
                       {showPassword ? <Visibility /> : <VisibilityOff />}
                     </IconButton>
                   </InputAdornment>
                 }
               />
               <div className="d-flex stepper-text mt-3">
-                <div className="d-flex justify-content-between align-items-center w-100">
+                {/* <div className="d-flex justify-content-between align-items-center w-100">
                   <p
                     //   onClick={handleForgotPasswordVisible}
                     className="forgot-pass-text pointer">
                     Şifrenizi mi unuttunuz?
                   </p>
-                </div>
+                </div> */}
               </div>
               <button
                 onClick={() => {
@@ -132,7 +133,8 @@ const Login = () => {
                 style={{
                   textAlign: "center",
                 }}
-                className="btn-pill-v1 mt-4">
+                className="btn-pill-v1 mt-4"
+              >
                 Giriş Yap
               </button>
               <p className="sign-up-title mt-3">

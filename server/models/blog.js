@@ -2,12 +2,12 @@ const mongoose = require("mongoose");
 const BlogSchema = new mongoose.Schema({
   authorName: {
     type: String,
-    required: true,
+    required: false,
     trim: true,
   },
   userId: {
     type: String,
-    required: true,
+    required: false,
     trim: true,
   },
   blogName: {
@@ -15,9 +15,14 @@ const BlogSchema = new mongoose.Schema({
     required: false,
     trim: true,
   },
+  city: {
+    type: String,
+    required: false,
+    trim: true,
+  },
   placeImage: {
     type: String,
-    required: true,
+    required: false,
     trim: true,
   },
   blogText: {
@@ -32,13 +37,14 @@ const BlogSchema = new mongoose.Schema({
   },
 
   status: {
-    type: Boolean,
+    type: String,
     required: false,
     trim: true,
+    default: "waitingApproval",
   },
   placeImageDetails: {
     type: Array,
-    required: true,
+    required: false,
     trim: true,
   },
   comments: {

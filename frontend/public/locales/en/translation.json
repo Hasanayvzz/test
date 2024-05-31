@@ -1,4 +1,10 @@
 {
+  "dashboard": {
+    "rowsPer": "Rows per page"
+  },
+  "userList": "User List",
+
+  "blogList": "Blog List",
   "navbar": {
     "home": "Home",
     "allBlogs": "All Blogs",
@@ -6,7 +12,21 @@
     "register": "Register",
     "hello": "Hello",
     "myProfile": "My Profile",
+    "dashboard": "Admin Dashboard",
     "logOut": "Log Out"
+  },
+  "table": {
+    "userName": "User Name",
+    "userId": "User Id",
+    "role": "Role",
+    "registrationDate": "Registration Date",
+    "dateLowercase": "Date",
+    "blogName": "Blog Name",
+    "deleteUser": "Delete User",
+    "publishedDate": "Published Date",
+    "authorName": "Author Name",
+    "country": "Country",
+    "status": "Status"
   },
   "hero": {
     "title": "Explore the Beauty of the Beautiful World",
@@ -37,6 +57,8 @@
   "cta": {
     "cta": "Would you like to publish your travels on Seyahat Düşleri?",
     "ctaButton": "Register",
+    "meetOurAi": "Meet the Travel Dreams artificial intelligence.",
+    "chatWithAi": "Chat",
     "publishBlog": "Publish Your Travel"
   },
 
@@ -75,6 +97,8 @@
   "blogCard": {
     "star": "Star",
     "country": "Country",
+    "city": "City",
+    "head": "Head",
     "price": "Approximately Price",
     "author": "Author",
     "date": "Release Date",

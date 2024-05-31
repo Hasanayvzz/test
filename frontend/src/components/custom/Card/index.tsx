@@ -12,8 +12,7 @@ import DropdownItem from "../Dropdown";
 import PreviewSvg from "../../../../public/img/preview.svg";
 import Approve from "../../../../public/img/verify/ok.svg";
 import Reject from "../../../../public/img/verify/cross.svg";
-import LinearProgressBar from "../../ProgressBar";
-import PriceComponent from "../../currencyFormat";
+
 interface Props {
   verificationType?: any;
   projectId?: any;

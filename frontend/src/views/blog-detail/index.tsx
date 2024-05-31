@@ -22,9 +22,11 @@ import { useTheme } from "../../contexts/Theme/ThemeContext";
 import { ApiRequest } from "../../pages/api";
 import { LoaderContext } from "../../contexts/loaderContext";
 import { useTranslation } from "react-i18next";
-
 import CommentList from "../../components/Comment";
 import CommentForm from "../../components/CommentForm";
+import { recommendJSON } from "../../recommendJSON";
+import AuthContext from "../../contexts/AuthContext";
+import { toast } from "react-toastify";
 function PropertyDetail() {
   const StyledRating = withStyles({
     iconFilled: {
@@ -35,25 +37,47 @@ function PropertyDetail() {
     },
   })(Rating);
   const [loading, setLoading] = useState<boolean>(false);
-  const router = useRouter();
   const { t } = useTranslation();
   const [blogDetail, setBlogDetail] = useState<any>();
   const { handleLoading } = useContext(LoaderContext);
+  const [recommendData, setRecommendData] = useState([]);
+  const [trigger, setTrigger] = useState(false);
+  const [averageRating, setAverageRating] = useState(0);
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "", // Replace with your API key
+    googleMapsApiKey: "",
     libraries: ["places"],
   });
   useEffect(() => {
     handleLoading(true);
     ApiRequest.getBlogById(window.location.pathname.slice(7))
       .then((res) => {
+        const stars = res?.blog?.stars;
+        if (stars.length > 0) {
+          const total = stars.reduce((sum, star) => sum + star.amount, 0);
+          const average = total / stars.length;
+          setAverageRating(average);
+        }
         setBlogDetail(res.blog);
         handleLoading(false);
       })
       .catch((e) => {
         handleLoading(false);
       });
-  }, []);
+  }, [trigger]);
+
+  useEffect(() => {
+    if (blogDetail) {
+      ApiRequest.recommend({
+        input_city: blogDetail.city,
+      })
+        .then((res) => {
+          setRecommendData(res.result);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    }
+  }, [blogDetail]);
 
   const sliderData = blogDetail?.placeImageDetails.map((image: any) => {
     return {
@@ -76,6 +100,43 @@ function PropertyDetail() {
   const handleAddComment = (newComment) => {
     setComments([...comments, newComment]);
   };
+
+  const { user } = useContext(AuthContext);
+  const handleRatingChange = async (event, newValue) => {
+    if (user) {
+      ApiRequest.addStar({
+        blogId: blogDetail._id,
+        userId: user,
+        amount: newValue,
+      })
+        .then((res) => {
+          toast.success("Blog puanlaması başarıyla güncellendi", {
+            position: "top-right",
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: false,
+            progress: undefined,
+            theme: "light",
+            autoClose: 3000,
+          });
+          setTrigger(!trigger);
+        })
+        .catch((e) => console.log("err", e));
+    } else {
+      toast.error("Lütfen giriş yapınız.", {
+        position: "top-right",
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+        theme: "light",
+        autoClose: 3000,
+      });
+    }
+  };
+
   return (
     <>
       {<Header />}
@@ -96,20 +157,23 @@ function PropertyDetail() {
                             style={{ cursor: "pointer" }}
                             onClick={handleOpenPreviewModal}
                             key={index}
-                            className="icon-cnt">
+                            className="icon-cnt"
+                          >
                             <div
                               className="preview-container"
                               style={{
                                 borderRadius: 5,
                                 backgroundImage: `url(${image})`,
-                              }}></div>
+                              }}
+                            ></div>
                           </div>
                         )
                       )}
                   </div>
                   <div
                     className="d-flex justify-content-between"
-                    style={{ marginTop: "75px" }}>
+                    style={{ marginTop: "75px" }}
+                  >
                     <p className="property-detail-name-text">
                       {/* {propertyDetail.name} */}
                     </p>
@@ -121,14 +185,49 @@ function PropertyDetail() {
                       {new Date(blogDetail?.date).toLocaleDateString()}
                     </p>
 
-                    <StyledRating name="customized-color" value={0} />
+                    <StyledRating
+                      name="customized-color"
+                      value={averageRating}
+                      onChange={handleRatingChange}
+                    />
                   </div>
                   <p className="text-16-400-blue " style={{ flex: 1 }}>
                     <div
                       dangerouslySetInnerHTML={{
                         __html: blogDetail?.blogText,
-                      }}></div>
+                      }}
+                    ></div>
                   </p>
+
+                  <p className="text-24-700-yellow mt-5">
+                    Bir Sonraki Durağınız olabilir
+                  </p>
+                  <p className="mt-3">
+                    İncelendiğiniz konuma yakın olan gezilecek yerlere göre
+                    oluşturulan tavsiyelerdir
+                  </p>
+                  <div className="wrapper">
+                    {recommendData.map((elm) => {
+                      const matchedCity = recommendJSON.find(
+                        (item) => item.city === elm
+                      );
+
+                      if (matchedCity) {
+                        return (
+                          <div className="recommender-card" key={elm.city}>
+                            <img src={matchedCity.image} alt="Dağlar" />
+                            <div className="info">
+                              <h1>{matchedCity.city}</h1>
+                              <p>{matchedCity.title}</p>
+                              {/* <button>Daha Fazla Oku</button> */}
+                            </div>
+                          </div>
+                        );
+                      } else {
+                        return null; // Render nothing if no match found
+                      }
+                    })}
+                  </div>
 
                   <Accordion
                     defaultExpanded
@@ -136,7 +235,8 @@ function PropertyDetail() {
                       backgroundColor: theme.theme === "light" ? "" : "#333",
                       marginTop: "50px",
                       borderRadius: 12,
-                    }}>
+                    }}
+                  >
                     <AccordionSummary
                       style={{
                         backgroundColor: theme.theme === "light" ? "" : "#333",
@@ -145,7 +245,8 @@ function PropertyDetail() {
                       className="p-0"
                       aria-controls="panel2a-content"
                       id="panel2a-header"
-                      expandIcon={<ExpandMoreIcon />}>
+                      expandIcon={<ExpandMoreIcon />}
+                    >
                       <Typography className={"desc-head px-4 py-0"}>
                         <p style={{ fontSize: 24 }} className="gradient-text">
                           {t("blogDetail.location")}
@@ -157,7 +258,8 @@ function PropertyDetail() {
                       style={{
                         backgroundColor: theme.theme === "light" ? "" : "#333",
                         borderRadius: 12,
-                      }}>
+                      }}
+                    >
                       <div className={`  ${theme.theme}`}>
                         <DetailMap
                           isLoaded={isLoaded}
@@ -179,19 +281,23 @@ function PropertyDetail() {
                 centered
                 show={previewModal}
                 onHide={handleClosePreviewModal}
-                style={{ zIndex: "9999" }}>
+                style={{ zIndex: "9999" }}
+              >
                 <Modal.Header
                   closeButton
-                  style={{ border: "0px" }}></Modal.Header>
+                  style={{ border: "0px" }}
+                ></Modal.Header>
 
                 <Modal.Body>
                   <ImageSlider
                     slides={sliderData}
-                    SliderData={sliderData}></ImageSlider>
+                    SliderData={sliderData}
+                  ></ImageSlider>
                 </Modal.Body>
 
                 <Modal.Footer
-                  style={{ border: "0px", padding: 10 }}></Modal.Footer>
+                  style={{ border: "0px", padding: 10 }}
+                ></Modal.Footer>
               </Modal>
               <div>
                 <div className="col-md-6">

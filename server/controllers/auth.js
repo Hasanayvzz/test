@@ -134,13 +134,15 @@ const getUserById = async (req, res) => {
     // Yorum ve yıldız sayılarını hesapla
     let totalComments = 0;
     let totalStars = 0;
+    let totalAmount = 0;
     for (const blog of blogs) {
       totalComments += blog.comments.length;
       totalStars += blog.stars.length;
+      totalAmount += blog.stars.reduce((sum, star) => sum + star.amount, 0);
     }
 
-    // Aritmetik ortalama hesapla
-    const averageStars = blogs.length > 0 ? totalStars / blogs.length : 0;
+    // Ortalama amount hesapla
+    const averageStars = totalStars > 0 ? totalAmount / totalStars : 0;
 
     res.status(200).json({
       status: "OK",
@@ -155,6 +157,11 @@ const getUserById = async (req, res) => {
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
+};
+
+module.exports = {
+  getUserById,
+  // diğer fonksiyonlar
 };
 
 module.exports = {

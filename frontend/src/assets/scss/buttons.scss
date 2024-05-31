@@ -91,6 +91,56 @@
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+.btn-rounded-red {
+  cursor: pointer;
+  padding: 14px 36px;
+  outline: none;
+  border-radius: 8px;
+  font-style: normal;
+  font-weight: 600;
+  color: #f7626f;
+  font-size: 15px;
+  background: transparent;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  transition: all 0.3s;
+  border: 1px solid #f7626f;
+}
+
+.btn-rounded-red:hover {
+  background: #f7626f;
+  color: #fff;
+  transform: scale(1.01);
+  border: 1px solid #f7626f -15.49%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn-rounded-green {
+  cursor: pointer;
+  padding: 14px 36px;
+  outline: none;
+  border-radius: 8px;
+  font-style: normal;
+  font-weight: 600;
+  color: #00d66b;
+  font-size: 15px;
+  background: transparent;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  transition: all 0.3s;
+  border: 1px solid #00d66b;
+}
+
+.btn-rounded-green:hover {
+  background: #00d66b;
+  color: #fff;
+  transform: scale(1.01);
+  border: 1px solid #00d66b -15.49%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
 .file-btn {
   padding: 8px 19px 8px 18px;
   border-radius: 16px;

@@ -84,11 +84,14 @@ const Header: React.FC<IHeader> = ({ page }) => {
     Cookies.set("refreshToken", res?.data?.refreshToken);
     Cookies.set("accessToken", res?.data?.accessToken);
   };
+
+  console.log("settingsData", settingsData);
   return (
     <>
       <header
         id="header"
-        className={page && page === "landing" ? "landingheader" : "sub-header"}>
+        className={page && page === "landing" ? "landingheader" : "sub-header"}
+      >
         <div className="container-xxl d-flex align-items-center justify-content-between">
           <div className=" d-flex align-items-center gap-5">
             {page === "landing" ? (
@@ -96,7 +99,8 @@ const Header: React.FC<IHeader> = ({ page }) => {
                 {theme === "dark" ? (
                   <div
                     className="logo"
-                    onClick={() => handleNavClick("/", "home")}>
+                    onClick={() => handleNavClick("/", "home")}
+                  >
                     {isScrolled ? (
                       // Eğer scrolled ise, yeni logo
                       <img
@@ -138,7 +142,8 @@ const Header: React.FC<IHeader> = ({ page }) => {
                 {theme === "dark" ? (
                   <div
                     className="logo"
-                    onClick={() => handleNavClick("/", "home")}>
+                    onClick={() => handleNavClick("/", "home")}
+                  >
                     <img
                       src={WhiteLogo.src}
                       alt="dark-logo"
@@ -148,7 +153,8 @@ const Header: React.FC<IHeader> = ({ page }) => {
                 ) : (
                   <div
                     className="logo"
-                    onClick={() => handleNavClick("/", "home")}>
+                    onClick={() => handleNavClick("/", "home")}
+                  >
                     <img
                       src={DarkLogo.src}
                       alt="new-logo"
@@ -160,28 +166,33 @@ const Header: React.FC<IHeader> = ({ page }) => {
             )}
             <nav
               id="navbar"
-              className={isNavOpen ? "navbar navbar-mobile" : "navbar"}>
+              className={isNavOpen ? "navbar navbar-mobile" : "navbar"}
+            >
               <ul>
                 <li
                   key={activeMenuItem}
                   className={`dashboard-items ${
                     activeMenuItem === "home" ? "active" : ""
-                  }`}>
+                  }`}
+                >
                   <span
                     className="dashboard-items"
-                    onClick={() => handleNavClick("/", "home")}>
+                    onClick={() => handleNavClick("/", "home")}
+                  >
                     {t("navbar.home")}
                   </span>
                 </li>
                 <li
                   className={`dashboard-items ${
                     activeMenuItem === "all-blogs" ? "active" : ""
-                  }`}>
+                  }`}
+                >
                   <span
                     className={`dashboard-items ${
                       activeMenuItem === "all-blogs" ? "active" : ""
                     }`}
-                    onClick={() => handleNavClick("/all-blogs", "all-blogs")}>
+                    onClick={() => handleNavClick("/all-blogs", "all-blogs")}
+                  >
                     {t("navbar.allBlogs")}
                   </span>
                 </li>
@@ -201,13 +212,15 @@ const Header: React.FC<IHeader> = ({ page }) => {
                           style={{ background: "red !important" }}
                           onClick={() =>
                             setTheme(theme === "light" ? "dark" : "light")
-                          }></span>
+                          }
+                        ></span>
                       </label>
                     </li>
                     <li className="nav-mobile-lang">
                       <div
                         className="language-selector"
-                        onClick={handleLanguageChange}>
+                        onClick={handleLanguageChange}
+                      >
                         <Image
                           src={i18n.language === "tr-TR" ? LangTr : LangEn}
                           alt={
@@ -253,20 +266,30 @@ const Header: React.FC<IHeader> = ({ page }) => {
                           <div className={`dropdown-content ${theme}`}>
                             <div className="d-flex flex-column gap-2 p-3">
                               <div
-                                className={`dropdown-item d-flex gap-1 align-items-center ${theme}`}>
+                                className={`dropdown-item d-flex gap-1 align-items-center ${theme}`}
+                              >
                                 <img src="/images/icons/db-ic.svg" alt="" />
                                 <span
                                   className={`${theme}`}
-                                  onClick={() => router.push("/my-profile")}>
-                                  {t("navbar.myProfile")}
+                                  onClick={() => {
+                                    settingsData.userRole === "admin"
+                                      ? router.push("/admin-dashboard")
+                                      : router.push("/my-profile");
+                                  }}
+                                >
+                                  {settingsData.userRole === "admin"
+                                    ? t("navbar.dashboard")
+                                    : t("navbar.myProfile")}
                                 </span>
                               </div>
                               <div
-                                className={`${theme} dropdown-item d-flex gap-1 align-items-center`}>
+                                className={`${theme} dropdown-item d-flex gap-1 align-items-center`}
+                              >
                                 <img src="/images/icons/lg-ic.svg" alt="" />
                                 <span
                                   className={`  log-out-text`}
-                                  onClick={handleLogout}>
+                                  onClick={handleLogout}
+                                >
                                   {t("navbar.logOut")}
                                 </span>
                               </div>
@@ -277,12 +300,14 @@ const Header: React.FC<IHeader> = ({ page }) => {
                         <div className="d-flex align-items-center gap-3">
                           <Link
                             className={`login-text ${isScrolled}`}
-                            href="/auth/login">
+                            href="/auth/login"
+                          >
                             {t("navbar.login")}
                           </Link>
                           <p
                             className="btn-pill-v2"
-                            onClick={() => router.push("/auth/register")}>
+                            onClick={() => router.push("/auth/register")}
+                          >
                             {t("navbar.register")}
                           </p>
                           {/*Buraya buton */}
@@ -304,12 +329,14 @@ const Header: React.FC<IHeader> = ({ page }) => {
                       style={{ background: "red !important" }}
                       onClick={() =>
                         setTheme(theme === "light" ? "dark" : "light")
-                      }></span>
+                      }
+                    ></span>
                   </label>
                 </div>
                 <div
                   className="language-selector"
-                  onClick={handleLanguageChange}>
+                  onClick={handleLanguageChange}
+                >
                   <Image
                     src={i18n.language === "tr-TR" ? LangTr : LangEn}
                     alt={

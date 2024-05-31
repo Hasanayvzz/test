@@ -1,8 +1,6 @@
 import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
-
 import { useLoadScript } from "@react-google-maps/api";
-
 import "@reach/combobox/styles.css";
 import {
   Box,
@@ -16,6 +14,7 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import Map from "./Map/Map";
 import countryJSON from "../../public/gistfile1.json";
+
 import { useFormik } from "formik";
 import SettingsContext from "../contexts/SettingsContext";
 import FileUploadComponent from "./FileUploadComponent";
@@ -26,6 +25,7 @@ import { LoaderContext } from "../contexts/loaderContext";
 import { useRouter } from "next/router";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "@emotion/react";
+import { recommendJSON } from "../recommendJSON";
 
 function CreateBlogComponent() {
   const { settingsData } = useContext(SettingsContext);
@@ -41,6 +41,7 @@ function CreateBlogComponent() {
       address: "",
       latitude: "",
       blogName: "",
+      city: "",
       blogText: "",
       currency: "",
       longitude: "",
@@ -61,6 +62,7 @@ function CreateBlogComponent() {
         lat: Number(formik.values.latitude),
         lng: Number(formik.values.longitude),
         blogName: formik.values.blogName,
+        city: formik.values.city,
         currency: formik.values.currency,
         blogText: formik.values.blogText,
         authorName: settingsData.fullName,
@@ -72,16 +74,19 @@ function CreateBlogComponent() {
       await ApiRequest.createBlog(createBlogReqBody)
         .then(() => {
           handleLoading(false);
-          toast.success("Successfully created", {
-            position: "top-right",
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: false,
-            progress: undefined,
-            theme: "light",
-            autoClose: 3000,
-          });
+          toast.success(
+            "Blog yazınız başarıyla oluşturuldu. Admin onayından sonra blog yazınız sistemde listelenecektir.",
+            {
+              position: "top-right",
+              hideProgressBar: false,
+              closeOnClick: false,
+              pauseOnHover: true,
+              draggable: false,
+              progress: undefined,
+              theme: "light",
+              autoClose: 3000,
+            }
+          );
           router.push("/all-blogs");
         })
         .catch((e) =>
@@ -100,7 +105,7 @@ function CreateBlogComponent() {
   });
 
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyC2vqKZENQKg4GeP6H1UdmcR6hsirXY0Ho",
+    googleMapsApiKey: "",
     libraries: ["places"],
   });
 
@@ -122,17 +127,10 @@ function CreateBlogComponent() {
                 name="country"
                 value={formik.values.country && formik.values.country}
                 onChange={formik.handleChange}
-                className="my-input">
+                className="my-input"
+              >
                 {countryJSON.map((item: any, index: number) => (
-                  <MenuItem
-                    onClick={() => {
-                      formik.setFieldValue(
-                        "flagImage",
-                        `data:image/png;base64,${item.flag}`
-                      );
-                    }}
-                    key={index}
-                    value={item.name}>
+                  <MenuItem key={index} value={item.name}>
                     <div className="d-flex gap-3">
                       <img src={`data:image/png;base64,${item.flag}`} alt="" />
                       <span>{item.name}</span>
@@ -140,6 +138,66 @@ function CreateBlogComponent() {
                   </MenuItem>
                 ))}
               </Select>
+            </div>
+            <div className="col-md-6">
+              <p className="text-16-600 mb-2">{t("blogCard.city")}</p>
+              <Select
+                variant="standard"
+                id="city"
+                name="city"
+                value={formik.values.city && formik.values.city}
+                onChange={formik.handleChange}
+                className="my-input"
+              >
+                {recommendJSON.map((item: any, index: number) => (
+                  <MenuItem key={index} value={item.city}>
+                    <div className="d-flex gap-3">
+                      <span>{item.city}</span>
+                    </div>
+                  </MenuItem>
+                ))}
+              </Select>
+            </div>
+          </div>
+          <div className="row mt-4 align-items-center justify-content-between">
+            <div className="col-md-6">
+              <p className="text-16-600 mb-2">{t("blogDetail.mainImage")}</p>
+              <FileUploadComponent
+                formik={formik}
+                whichField={"placeImage"}
+                componentKey={"placeImage"}
+              />
+            </div>
+            <div className="col-md-6">
+              <p className="text-16-600 mb-2">{t("blogDetail.detailImages")}</p>
+              <MultipleFileUploadComponent
+                formik={formik}
+                whichField={"placeImageDetails"}
+                componentKey={"placeImageDetails"}
+              />
+            </div>
+          </div>
+          <div className="mt-2"></div>
+          <div className="row mt-4 align-items-center justify-content-between">
+            <div className="col-md-6">
+              <p className="text-16-600 mb-2">{t("blogCard.head")}</p>
+              <OutlinedInput
+                type="text"
+                name="blogName"
+                onChange={formik.handleChange}
+                value={formik.values.blogName}
+                sx={{
+                  "&:hover .MuiOutlinedInput-notchedOutline": {
+                    borderColor: "#F9B34F",
+                  },
+                  "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                    borderColor: "#F9B34F",
+                  },
+                  width: "100%",
+                }}
+                className=" ht-50 "
+                aria-describedby="basic-addon2"
+              />
             </div>
             <div className="col-md-6">
               <p className="text-16-600 mb-2">{t("blogDetail.price")}</p>
@@ -151,7 +209,8 @@ function CreateBlogComponent() {
                 endAdornment={
                   <InputAdornment
                     position="end"
-                    className={`${theme} input-adornment-text`}>
+                    className={`${theme} input-adornment-text`}
+                  >
                     |
                     <Box
                       sx={{
@@ -163,7 +222,8 @@ function CreateBlogComponent() {
                             border: "none",
                           },
                         },
-                      }}>
+                      }}
+                    >
                       <FormControl>
                         <Select
                           name="currency"
@@ -175,7 +235,8 @@ function CreateBlogComponent() {
                           onChange={formik.handleChange}
                           displayEmpty
                           variant="outlined"
-                          renderValue={(params) => <span>{params}</span>}>
+                          renderValue={(params) => <span>{params}</span>}
+                        >
                           {stockData.map((elm: string, index: number) => (
                             <MenuItem key={index} value={elm}>
                               {elm}
@@ -201,44 +262,6 @@ function CreateBlogComponent() {
               />
             </div>
           </div>
-          <div className="row mt-4 align-items-center justify-content-between">
-            <div className="col-md-6">
-              <p className="text-16-600 mb-2">{t("blogDetail.mainImage")}</p>
-              <FileUploadComponent
-                formik={formik}
-                whichField={"placeImage"}
-                componentKey={"placeImage"}
-              />
-            </div>
-            <div className="col-md-6">
-              <p className="text-16-600 mb-2">{t("blogDetail.detailImages")}</p>
-              <MultipleFileUploadComponent
-                formik={formik}
-                whichField={"placeImageDetails"}
-                componentKey={"placeImageDetails"}
-              />
-            </div>
-          </div>
-          <div className="mt-2"></div>
-          <p className="text-16-600 ">Başlık</p>
-          <OutlinedInput
-            type="text"
-            name="blogName"
-            onChange={formik.handleChange}
-            value={formik.values.blogName}
-            sx={{
-              "&:hover .MuiOutlinedInput-notchedOutline": {
-                borderColor: "#F9B34F",
-              },
-              "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                borderColor: "#F9B34F",
-              },
-              width: "100%",
-            }}
-            className=" ht-50 "
-            placeholder={t("blogDetail.enterFee")}
-            aria-describedby="basic-addon2"
-          />
           <p className="text-16-600 ">Blog Yazısı</p>
           <ReactQuill
             id="brandIntro"
