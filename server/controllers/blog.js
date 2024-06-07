@@ -169,7 +169,73 @@ const getAllBlogsExcludingPlaceImageDetails = async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 };
+const addComment = async (req, res) => {
+  try {
+    const { blogId, userId, text, name } = req.body;
 
+    const updatedBlog = await Blog.findByIdAndUpdate(
+      blogId,
+      { $push: { comments: { userId, text, name } } },
+      { new: true }
+    );
+
+    if (!updatedBlog) {
+      return res.status(404).json({ message: "Blog bulunamadı" });
+    }
+
+    res.status(200).json({
+      status: "OK",
+      updatedBlog,
+    });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+const updateComment = async (req, res) => {
+  try {
+    const { blogId, commentId, text } = req.body;
+
+    const updatedBlog = await Blog.findOneAndUpdate(
+      { _id: blogId, "comments._id": commentId },
+      { $set: { "comments.$.text": text } },
+      { new: true }
+    );
+
+    if (!updatedBlog) {
+      return res.status(404).json({ message: "Blog veya yorum bulunamadı" });
+    }
+
+    res.status(200).json({
+      status: "OK",
+      updatedBlog,
+    });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+const deleteComment = async (req, res) => {
+  try {
+    const { blogId, commentId } = req.body;
+
+    const updatedBlog = await Blog.findByIdAndUpdate(
+      blogId,
+      { $pull: { comments: { _id: commentId } } },
+      { new: true }
+    );
+
+    if (!updatedBlog) {
+      return res.status(404).json({ message: "Blog veya yorum bulunamadı" });
+    }
+
+    res.status(200).json({
+      status: "OK",
+      updatedBlog,
+    });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
 module.exports = {
   blogCreate,
   deleteBlog,
@@ -178,5 +244,8 @@ module.exports = {
   getAllBlogsExcludingImages,
   updateBlogStatus,
   addStarToBlog,
+  addComment,
+  updateComment,
+  deleteComment,
   getAllBlogsExcludingPlaceImageDetails,
 };

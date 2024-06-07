@@ -8,6 +8,9 @@ const {
   addStarToBlog,
   updateBlogStatus,
   getAllBlogsExcludingPlaceImageDetails,
+  addComment,
+  updateComment,
+  deleteComment,
 } = require("../controllers/blog.js");
 const blogRouter = express.Router();
 
@@ -23,5 +26,8 @@ blogRouter.post("/delete", deleteBlog);
 blogRouter.post("/update", updateBlogStatus);
 blogRouter.post("/addStar", addStarToBlog);
 blogRouter.get("/:blogId", getBlogById);
+blogRouter.post("/addComment", addComment);
+blogRouter.post("/updateComment", updateComment);
+blogRouter.post("/deleteComment", deleteComment);
 
 module.exports = blogRouter;

@@ -1,8 +1,7 @@
 import React, { useContext, useState } from "react";
 import SettingsContext from "../contexts/SettingsContext";
 
-export const CommentForm = ({ onAddComment }) => {
-  const [text, setText] = useState("");
+export const CommentForm = ({ onAddComment, setText, text }) => {
   const [author, setAuthor] = useState("");
   const { settingsData } = useContext(SettingsContext);
   const user = settingsData?.fullName;
@@ -20,11 +19,13 @@ export const CommentForm = ({ onAddComment }) => {
         placeholder="Your Comment"
         className="my-input"
         value={text}
-        onChange={(e) => setText(e.target.value)}></textarea>
+        onChange={(e) => setText(e.target.value)}
+      ></textarea>
       <button
         type="submit"
         className="btn-pill-v2"
-        style={{ width: "fit-content" }}>
+        style={{ width: "fit-content" }}
+      >
         Submit
       </button>
     </form>

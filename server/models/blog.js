@@ -1,4 +1,25 @@
 const mongoose = require("mongoose");
+const CommentSchema = new mongoose.Schema({
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
+  text: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  name: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  timestamp: {
+    type: Date,
+    default: Date.now,
+  },
+});
 const BlogSchema = new mongoose.Schema({
   authorName: {
     type: String,
@@ -47,11 +68,7 @@ const BlogSchema = new mongoose.Schema({
     required: false,
     trim: true,
   },
-  comments: {
-    type: Array,
-    required: false,
-    trim: true,
-  },
+  comments: [CommentSchema],
   approximatelyPrice: {
     type: String,
     required: false,

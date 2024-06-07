@@ -27,6 +27,7 @@ import CommentForm from "../../components/CommentForm";
 import { recommendJSON } from "../../recommendJSON";
 import AuthContext from "../../contexts/AuthContext";
 import { toast } from "react-toastify";
+import SettingsContext from "../../contexts/SettingsContext";
 function PropertyDetail() {
   const StyledRating = withStyles({
     iconFilled: {
@@ -38,11 +39,13 @@ function PropertyDetail() {
   })(Rating);
   const [loading, setLoading] = useState<boolean>(false);
   const { t } = useTranslation();
+  const [text, setText] = useState();
   const [blogDetail, setBlogDetail] = useState<any>();
   const { handleLoading } = useContext(LoaderContext);
   const [recommendData, setRecommendData] = useState([]);
   const [trigger, setTrigger] = useState(false);
   const [averageRating, setAverageRating] = useState(0);
+  const [updatedBlog, setUpdatedBlog] = useState<any>();
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: "",
     libraries: ["places"],
@@ -84,7 +87,7 @@ function PropertyDetail() {
       image: image,
     };
   });
-
+  const { settingsData } = useContext(SettingsContext);
   const theme = useTheme();
   const [value, setValue] = useState<any>();
   const [previewModal, setPreviewModal] = useState(false);
@@ -98,7 +101,14 @@ function PropertyDetail() {
   const [comments, setComments] = useState([]);
 
   const handleAddComment = (newComment) => {
-    setComments([...comments, newComment]);
+    ApiRequest.addComment({
+      userId: user,
+      blogId: blogDetail._id,
+      text: text,
+      name: settingsData?.fullName,
+    }).then((res) => {
+      setTrigger(!trigger);
+    });
   };
 
   const { user } = useContext(AuthContext);
@@ -270,10 +280,29 @@ function PropertyDetail() {
                       </div>
                     </AccordionDetails>
                   </Accordion>
-                  <p style={{ fontSize: 24 }} className="gradient-text">
-                    {t("blogDetail.comments")}
-                  </p>
-                  <div className="mt-5"></div>
+                </div>
+              </div>
+              <div>
+                <div className="col-md-6">
+                  <p className="text-24-700 mb-5">{t("blogDetail.comments")}</p>
+                  <CommentList
+                    comments={blogDetail?.comments}
+                    blogId={blogDetail?._id}
+                    trigger={trigger}
+                    setTrigger={setTrigger}
+                    onAddComment={handleAddComment}
+                    text={text}
+                    setText={setText}
+                    updatedBlog={updatedBlog}
+                    setUpdatedBlog={setUpdatedBlog}
+                  />
+                  {!updatedBlog && (
+                    <CommentForm
+                      onAddComment={handleAddComment}
+                      text={text}
+                      setText={setText}
+                    />
+                  )}
                 </div>
               </div>
               <Modal
@@ -299,13 +328,6 @@ function PropertyDetail() {
                   style={{ border: "0px", padding: 10 }}
                 ></Modal.Footer>
               </Modal>
-              <div>
-                <div className="col-md-6">
-                  <p className="text-24-700 mb-5">Comments</p>
-                  <CommentList comments={comments} />
-                  <CommentForm onAddComment={handleAddComment} />
-                </div>
-              </div>
             </div>
           </div>
 

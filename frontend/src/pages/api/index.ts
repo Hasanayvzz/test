@@ -44,7 +44,6 @@ const request = {
 
 export const ApiRequest = {
   // Auth apis
-
   login: (payload: any) => request.post("auth/login", payload),
   register: (payload: any) => request.post("auth/register", payload),
   getUserById: (id) => request.get(`auth/${id}`),
@@ -60,7 +59,9 @@ export const ApiRequest = {
   updateBlog: (payload: any) => request.post("blog/update", payload),
   addStar: (payload: any) => request.post("blog/addStar", payload),
   getAllWithoutPlaceImages: () => request.get(`blog/getAllWithoutPlaceImages`),
-
+  addComment: (payload: any) => request.post("blog/addComment", payload),
+  deleteComment: (payload: any) => request.post("blog/deleteComment", payload),
+  updateComment: (payload: any) => request.post("blog/updateComment", payload),
   // Favorite
   addFavorite: (payload: any) => request.post(`favorite/create`, payload),
   getMyFavorites: (payload: any) =>
