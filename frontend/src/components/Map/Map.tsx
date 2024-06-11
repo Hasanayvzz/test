@@ -24,7 +24,7 @@ const Map = ({ formik, lat, lng }: any) => {
   const router = useRouter();
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "",
+    googleMapsApiKey: "AIzaSyC2vqKZENQKg4GeP6H1UdmcR6hsirXY0Ho",
     libraries: ["places"],
   });
   console.log("loadError", loadError);
