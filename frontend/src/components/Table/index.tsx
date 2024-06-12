@@ -9,8 +9,6 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import { useTheme } from "../../contexts/Theme/ThemeContext";
 import { useRouter } from "next/router";
-import { Modal } from "react-bootstrap";
-import { ethers } from "ethers";
 import { LoaderContext } from "../../contexts/loaderContext";
 import { useTranslation } from "react-i18next";
 import { ApiRequest } from "../../pages/api";
@@ -87,18 +85,15 @@ const UsersTable: React.FC<MUITable> = ({
         borderRadius: 4,
         padding: "0.5rem",
         background: theme.theme === "light" ? "#FBFBFB" : "#333333",
-      }}
-    >
+      }}>
       <TableContainer
         className="pointer"
-        sx={{ borderRadius: isBorderRadius ? isBorderRadius : 0 }}
-      >
+        sx={{ borderRadius: isBorderRadius ? isBorderRadius : 0 }}>
         <Table stickyHeader aria-label="sticky table" className="px-3 py-2 ">
           <TableHead
             style={{
               backgroundColor: theme.theme === "light" ? "#F0F0F0" : "#1F1F1F",
-            }}
-          >
+            }}>
             <TableRow style={{ borderRadius: 99 }}>
               {columns?.map((column: any, index: number) => (
                 <TableCell
@@ -116,8 +111,7 @@ const UsersTable: React.FC<MUITable> = ({
                     )
                       ? "1px solid #D8D8D8"
                       : "1px solid #D7D7D7",
-                  }}
-                >
+                  }}>
                   {column.label}
                 </TableCell>
               ))}
@@ -127,8 +121,7 @@ const UsersTable: React.FC<MUITable> = ({
           <TableBody
             style={{
               backgroundColor: theme.theme === "light" ? "#fbfbfb" : "#333333",
-            }}
-          >
+            }}>
             {filteredData
               ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row, index: number) => {
@@ -152,8 +145,7 @@ const UsersTable: React.FC<MUITable> = ({
                               fontWeight: 500,
                             }}
                             key={column.id}
-                            align={column.align}
-                          >
+                            align={column.align}>
                             {column.format && typeof value === "number"
                               ? column.format(value)
                               : value}
@@ -189,8 +181,7 @@ const UsersTable: React.FC<MUITable> = ({
                               fontWeight: 500,
                             }}
                             key={column.id}
-                            align={column.align}
-                          >
+                            align={column.align}>
                             {column.format && typeof value === "number"
                               ? column.format(value)
                               : value}
@@ -225,8 +216,7 @@ const UsersTable: React.FC<MUITable> = ({
                               fontWeight: 500,
                             }}
                             key={column.id}
-                            align={column.align}
-                          >
+                            align={column.align}>
                             {column.format && typeof value === "number"
                               ? column.format(value)
                               : value}
@@ -247,8 +237,7 @@ const UsersTable: React.FC<MUITable> = ({
                               fontWeight: 500,
                             }}
                             key={column.id}
-                            align={column.align}
-                          >
+                            align={column.align}>
                             <div>
                               {value === "Rejected" ? (
                                 <p style={{ color: "#f7626f" }}>Reddedildi</p>
@@ -278,8 +267,7 @@ const UsersTable: React.FC<MUITable> = ({
                                             );
                                           });
                                         }}
-                                        className="btn-rounded-green"
-                                      >
+                                        className="btn-rounded-green">
                                         Onayla
                                       </button>
                                       <button
@@ -304,8 +292,7 @@ const UsersTable: React.FC<MUITable> = ({
                                             );
                                           });
                                         }}
-                                        className="btn-rounded-red"
-                                      >
+                                        className="btn-rounded-red">
                                         Reddet
                                       </button>
                                     </>
@@ -330,8 +317,7 @@ const UsersTable: React.FC<MUITable> = ({
                               fontWeight: 500,
                             }}
                             key={column.id}
-                            align={column.align}
-                          >
+                            align={column.align}>
                             {column.format && typeof value === "number"
                               ? column.format(value)
                               : value}
@@ -352,8 +338,7 @@ const UsersTable: React.FC<MUITable> = ({
                                   : "1px solid #D7D7D7",
                             }}
                             key={column.id}
-                            align={column.align}
-                          >
+                            align={column.align}>
                             {column.format && typeof value === "number"
                               ? column.format(value)
                               : value}

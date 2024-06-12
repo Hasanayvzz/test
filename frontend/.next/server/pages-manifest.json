@@ -1,8 +1,15 @@
 {
   "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js",
-  "/admin-dashboard": "pages/admin-dashboard.js",
-  "/blogs/[blogId]": "pages/blogs/[blogId].js"
+  "/all-blogs": "pages/all-blogs.html",
+  "/api": "pages/api.js",
+  "/auth/login": "pages/auth/login.html",
+  "/blogs/[blogId]": "pages/blogs/[blogId].html",
+  "/create-new-blog": "pages/create-new-blog.html",
+  "/auth/register": "pages/auth/register.html",
+  "/": "pages/index.html",
+  "/admin-dashboard": "pages/admin-dashboard.html",
+  "/my-profile": "pages/my-profile.html",
+  "/_error": "pages/_error.js",
+  "/404": "pages/404.html"
 }

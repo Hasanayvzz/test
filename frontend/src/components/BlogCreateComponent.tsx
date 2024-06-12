@@ -14,7 +14,6 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import Map from "./Map/Map";
 import countryJSON from "../../public/gistfile1.json";
-
 import { useFormik } from "formik";
 import SettingsContext from "../contexts/SettingsContext";
 import FileUploadComponent from "./FileUploadComponent";
@@ -127,8 +126,7 @@ function CreateBlogComponent() {
                 name="country"
                 value={formik.values.country && formik.values.country}
                 onChange={formik.handleChange}
-                className="my-input"
-              >
+                className="my-input">
                 {countryJSON.map((item: any, index: number) => (
                   <MenuItem key={index} value={item.name}>
                     <div className="d-flex gap-3">
@@ -147,8 +145,7 @@ function CreateBlogComponent() {
                 name="city"
                 value={formik.values.city && formik.values.city}
                 onChange={formik.handleChange}
-                className="my-input"
-              >
+                className="my-input">
                 {recommendJSON.map((item: any, index: number) => (
                   <MenuItem key={index} value={item.city}>
                     <div className="d-flex gap-3">
@@ -209,8 +206,7 @@ function CreateBlogComponent() {
                 endAdornment={
                   <InputAdornment
                     position="end"
-                    className={`${theme} input-adornment-text`}
-                  >
+                    className={`${theme} input-adornment-text`}>
                     |
                     <Box
                       sx={{
@@ -222,8 +218,7 @@ function CreateBlogComponent() {
                             border: "none",
                           },
                         },
-                      }}
-                    >
+                      }}>
                       <FormControl>
                         <Select
                           name="currency"
@@ -235,8 +230,7 @@ function CreateBlogComponent() {
                           onChange={formik.handleChange}
                           displayEmpty
                           variant="outlined"
-                          renderValue={(params) => <span>{params}</span>}
-                        >
+                          renderValue={(params) => <span>{params}</span>}>
                           {stockData.map((elm: string, index: number) => (
                             <MenuItem key={index} value={elm}>
                               {elm}
